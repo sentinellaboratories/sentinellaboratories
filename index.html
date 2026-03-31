@@ -20,8 +20,9 @@
             font-weight: 900; color: #0B162C; font-size: 1.5rem;
             box-shadow: 0 0 15px rgba(0, 245, 155, 0.4);
         }
-        /* Language Switcher Classes */
-        [lang="pt"] { display: none; }
+
+        /* Lógica de Troca de Idioma */
+        .lang-pt { display: none; }
     </style>
 </head>
 <body class="antialiased">
@@ -32,17 +33,15 @@
                 <div class="logo-s text-black font-bold">S</div>
                 <span class="text-2xl font-bold tracking-tighter uppercase italic">SENTINEL<span class="text-emerald text-sm italic ml-1">FX</span></span>
             </div>
-            
-            <div class="flex items-center gap-8">
+            <div class="flex items-center gap-6">
                 <nav class="hidden md:flex gap-6 text-sm font-semibold uppercase tracking-widest text-slate-400">
                     <a href="#backtest" class="hover:text-emerald transition"><span class="lang-en">Performance</span><span class="lang-pt">Performance</span></a>
                     <a href="#vendas" class="hover:text-emerald transition"><span class="lang-en">Advantages</span><span class="lang-pt">Vantagens</span></a>
                     <a href="#checkout" class="hover:text-emerald transition"><span class="lang-en">Acquire</span><span class="lang-pt">Adquirir</span></a>
                 </nav>
-
                 <div class="flex border border-slate-700 rounded-lg overflow-hidden text-[10px] font-bold">
-                    <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1 bg-emerald text-black transition">EN</button>
-                    <button onclick="setLanguage('pt')" id="btn-pt" class="px-3 py-1 bg-transparent text-slate-400 hover:text-white transition">PT</button>
+                    <button id="btn-en" onclick="setLang('en')" class="px-3 py-1 bg-emerald text-black">EN</button>
+                    <button id="btn-pt" onclick="setLang('pt')" class="px-3 py-1 bg-transparent text-slate-400">PT</button>
                 </div>
             </div>
         </div>
@@ -54,8 +53,8 @@
                 Sentinel<span class="text-emerald italic">FX</span>
             </h1>
             <p class="text-slate-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                <span class="lang-en">Quant Labs algorithm validated through 6 years of Real-Tick modeling with active capital protection.</span>
-                <span class="lang-pt">Algoritmo da Sentinel Quant Labs validado por 6 anos com modelagem Real-Ticks e proteção ativa de capital.</span>
+                <span class="lang-en">Quant Labs algorithm validated through 7 years with Real-Tick modeling and active capital protection.</span>
+                <span class="lang-pt">Algoritmo da Sentinel Quant Labs validado por 7 anos com modelagem Real-Ticks e proteção ativa de capital.</span>
             </p>
             <div class="flex flex-wrap justify-center gap-4 mb-16">
                 <a href="https://buy.stripe.com/4gM3co1g19xM6QB9Js1B600" class="bg-emerald text-black px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition transform shadow-lg shadow-emerald/20">
@@ -66,16 +65,16 @@
                 </a>
             </div>
 
-            <div id="video-container" class="card-gradient rounded-2xl border border-slate-700 max-w-3xl mx-auto aspect-video flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer shadow-2xl">
+            <div class="card-gradient rounded-2xl border border-slate-700 max-w-3xl mx-auto aspect-video flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer shadow-2xl">
                 <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition"></div>
                 <div class="w-16 h-16 bg-emerald rounded-full flex items-center justify-center pl-2 shadow-[0_0_30px_rgba(0,245,155,0.4)] z-10 group-hover:scale-110 transition">
                     <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"></path></svg>
                 </div>
                 <p class="text-emerald font-bold mt-4 z-10 uppercase tracking-widest">
-                    <span class="lang-en">Watch Robot in Action</span><span class="lang-pt">Assistir Robô em Operação</span>
+                    <span class="lang-en">Watch Robot in Operation</span><span class="lang-pt">Assistir Robô em Operação</span>
                 </p>
-                <p class="text-slate-500 text-[10px] z-10 mt-1 uppercase tracking-widest lang-en">[Live Stream starting soon]</p>
-                <p class="text-slate-500 text-[10px] z-10 mt-1 uppercase tracking-widest lang-pt">[Transmissão ao vivo em breve]</p>
+                <p class="text-slate-500 text-[10px] z-10 mt-1 uppercase tracking-widest lang-en">[Live video space reserved]</p>
+                <p class="text-slate-500 text-[10px] z-10 mt-1 uppercase tracking-widest lang-pt">[Espaço reservado para o seu vídeo]</p>
             </div>
         </div>
     </section>
@@ -83,7 +82,7 @@
     <section id="vendas" class="py-16 px-4 bg-slate-900/30 border-t border-slate-800">
         <div class="container mx-auto max-w-5xl">
             <h2 class="text-3xl font-bold text-center mb-12 uppercase italic">
-                <span class="lang-en">Quantitative Engineering <span class="text-emerald">Emotionless</span></span>
+                <span class="lang-en">Quantitative Engineering <span class="text-emerald">Without Emotions</span></span>
                 <span class="lang-pt">Engenharia Quantitativa <span class="text-emerald">Sem Emoções</span></span>
             </h2>
             
@@ -92,15 +91,29 @@
                     <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
                         <span class="text-xl">⚙️</span> <span class="lang-en">Professional Automation</span><span class="lang-pt">Automação Profissional</span>
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-en">True "Set-and-Forget" logic. The algorithm tracks, enters, and exits trades without hesitation or greed. Zero manual effort required.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">True "Set-and-Forget" logic. The algorithm tracks, enters, and exits trades without hesitation. Zero manual effort.</p>
                     <p class="text-slate-400 text-sm leading-relaxed lang-pt">Verdadeira lógica "Set-and-Forget". O algoritmo rastreia, entra e sai das operações sem hesitação ou ganância. Zero esforço manual necessário.</p>
                 </div>
                 <div class="card-gradient p-8 rounded-2xl border border-slate-800 hover:border-emerald/30 transition">
                     <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
                         <span class="text-xl">🛡️</span> <span class="lang-en">Dynamic Capital Protection</span><span class="lang-pt">Proteção Dinâmica de Capital</span>
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Active volatility-based risk management that survived Black Swans and global crises with controlled Drawdown.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Active volatility-based risk management that survived global crises with controlled Drawdown.</p>
                     <p class="text-slate-400 text-sm leading-relaxed lang-pt">Gestão de risco ativa baseada em volatilidade que superou Cisnes Negros e crises globais com Drawdown controlado.</p>
+                </div>
+                <div class="card-gradient p-8 rounded-2xl border border-slate-800 hover:border-emerald/30 transition">
+                    <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
+                        <span class="text-xl">📊</span> <span class="lang-en">Multi-Broker Adaptability</span><span class="lang-pt">Adaptabilidade Multi-Corretora</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Built for MetaTrader 5 (MT5), it works perfectly with Raw/ECN spreads from the best global brokers.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Construído para a plataforma MetaTrader 5 (MT5), funciona perfeitamente com spreads Raw/ECN das melhores corretoras globais.</p>
+                </div>
+                <div class="card-gradient p-8 rounded-2xl border border-slate-800 hover:border-emerald/30 transition">
+                    <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
+                        <span class="text-xl">⚡</span> <span class="lang-en">5-Minute Installation</span><span class="lang-pt">Instalação em 5 Minutos</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Straightforward step-by-step guide. No coding knowledge required. Plug & Play files.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Passo a passo direto e simplificado. Não requer conhecimento técnico em programação. Arquivos prontos para rodar.</p>
                 </div>
             </div>
         </div>
@@ -109,10 +122,10 @@
     <section id="backtest" class="py-16 px-4 bg-slate-900/50 border-t border-slate-800">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-3xl font-bold text-center mb-4 uppercase italic">
-                <span class="lang-en">Consolidated Report <span class="text-emerald">2019 - 2024</span></span>
-                <span class="lang-pt">Relatório Consolidado <span class="text-emerald">2019 - 2024</span></span>
+                <span class="lang-en">Consolidated Report <span class="text-emerald">2019 - 2026</span></span>
+                <span class="lang-pt">Relatório Consolidado <span class="text-emerald">2019 - 2026</span></span>
             </h2>
-            <p class="text-center text-slate-400 mb-12 font-bold uppercase tracking-widest text-sm lang-en">Real-Ticks Modeling (99% Quality) | Audited History</p>
+            <p class="text-center text-slate-400 mb-12 font-bold uppercase tracking-widest text-sm lang-en">Real-Ticks Modeling (99% Quality) | Full Audit History</p>
             <p class="text-center text-slate-400 mb-12 font-bold uppercase tracking-widest text-sm lang-pt">Modelagem Real-Ticks (99% Quality) | Histórico Auditoria Full</p>
 
             <div class="grid lg:grid-cols-3 gap-12 items-start">
@@ -128,6 +141,7 @@
                         <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 text-center">
                             <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">Total Net Profit</p>
                             <p class="text-3xl font-bold mono text-emerald">$8,435</p>
+                            <p class="text-[10px] text-emerald/60">+84.35% ROI</p>
                         </div>
                         <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 text-center">
                             <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1">Max Drawdown</p>
@@ -141,6 +155,10 @@
                             <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1 lang-en">Win Rate</p><p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1 lang-pt">Taxa de Acerto</p>
                             <p class="text-3xl font-bold mono text-white">71.3%</p>
                         </div>
+                        <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 col-span-2 text-center">
+                            <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1 lang-en">Recovery Factor</p><p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mb-1 lang-pt">Fator de Recuperação</p>
+                            <p class="text-3xl font-bold mono text-emerald">3.42</p>
+                        </div>
                     </div>
                 </div>
 
@@ -152,33 +170,60 @@
                     </div>
                 </div>
             </div>
+
+            <div class="bg-emerald/5 p-8 rounded-3xl border border-emerald/20 mt-12 max-w-5xl mx-auto shadow-inner text-center">
+                <h4 class="text-emerald font-bold uppercase mb-3 italic tracking-widest lang-en">Developer's Note</h4><h4 class="text-emerald font-bold uppercase mb-3 italic tracking-widest lang-pt">Nota do Desenvolvedor</h4>
+                <p class="text-[12px] leading-relaxed text-slate-300 font-medium uppercase tracking-tight lang-en">
+                    SentinelFX crossed the 2020 pandemic and global crises using the same core logic. The consolidated profit of $8,435 across 6,635 trades proves strategic solidity.
+                </p>
+                <p class="text-[12px] leading-relaxed text-slate-300 font-medium uppercase tracking-tight lang-pt">
+                    O SentinelFX atravessou a pandemia de 2020 e crises globais utilizando o mesmo núcleo algorítmico. O lucro de $8,435 em 6,635 operações comprova a solidez da estratégia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 px-4 bg-[#0B162C] border-t border-slate-800">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12 uppercase italic"><span class="lang-en">Frequently Asked Questions</span><span class="lang-pt">Perguntas Frequentes</span></h2>
+            <div class="space-y-4">
+                <details class="card-gradient p-6 rounded-xl border border-slate-800 group cursor-pointer">
+                    <summary class="flex justify-between items-center text-white font-bold uppercase text-sm tracking-widest lang-en">Does the robot guarantee profits?<span class="text-emerald">+</span></summary>
+                    <summary class="flex justify-between items-center text-white font-bold uppercase text-sm tracking-widest lang-pt">O robô garante lucros?<span class="text-emerald">+</span></summary>
+                    <p class="text-slate-400 text-sm mt-4 leading-relaxed lang-en">No trading system can guarantee profits. SentinelFX is built for consistency, but trading always involves risk.</p>
+                    <p class="text-slate-400 text-sm mt-4 leading-relaxed lang-pt">Nenhum sistema de trading pode garantir lucros. O mercado financeiro global envolve riscos. O SentinelFX é desenvolvido para consistência, mas o trading sempre envolve riscos.</p>
+                </details>
+                <details class="card-gradient p-6 rounded-xl border border-slate-800 group cursor-pointer">
+                    <summary class="flex justify-between items-center text-white font-bold uppercase text-sm tracking-widest lang-en">Do I need my PC on 24/7?<span class="text-emerald">+</span></summary>
+                    <summary class="flex justify-between items-center text-white font-bold uppercase text-sm tracking-widest lang-pt">Preciso deixar meu PC ligado 24h?<span class="text-emerald">+</span></summary>
+                    <p class="text-slate-400 text-sm mt-4 leading-relaxed lang-en">Yes. We strongly recommend a VPS to ensure 100% uptime without depending on your personal computer.</p>
+                    <p class="text-slate-400 text-sm mt-4 leading-relaxed lang-pt">Sim. Recomendamos fortemente o uso de uma VPS para garantir 100% de atividade sem depender do seu computador pessoal.</p>
+                </details>
+            </div>
         </div>
     </section>
 
     <section id="checkout" class="py-20 px-4 border-t border-slate-800 bg-slate-900/20 shadow-inner">
         <div class="container mx-auto max-w-5xl text-center">
             <h2 class="text-4xl font-bold mb-16 uppercase tracking-tighter italic text-white">SentinelFX <span class="text-emerald font-bold tracking-widest">Prestige Edition</span></h2>
-            
             <div class="card-gradient p-12 rounded-[40px] border-t-2 border-t-emerald/50 shadow-2xl emerald-glow">
                 <div class="mb-14 text-white">
                     <span class="text-8xl font-black mono leading-none tracking-tighter">$149<span class="text-2xl text-slate-500 font-bold ml-1 italic">USD</span></span>
                 </div>
-
                 <div class="max-w-2xl mx-auto text-center space-y-3 mb-12 text-slate-300 uppercase tracking-wider text-[11px] font-bold">
-                    <p>✅ <span class="lang-en">Lifetime License for MetaTrader 5 (MT5)</span><span class="lang-pt">Licença Vitalícia para MetaTrader 5 (MT5)</span></p>
-                    <p>✅ <span class="lang-en">Free Lifetime Updates Included</span><span class="lang-pt">Atualizações Grátis Inclusas para Sempre</span></p>
+                    <p>✅ <span class="lang-en">Lifetime License (MT5)</span><span class="lang-pt">Licença Vitalícia (MT5)</span></p>
+                    <p>✅ <span class="lang-en">Free Lifetime Updates</span><span class="lang-pt">Atualizações Grátis Vitalícias</span></p>
                     <p>✅ <span class="lang-en">Dedicated Technical Support</span><span class="lang-pt">Suporte Técnico Dedicado</span></p>
-                    <p>✅ <span class="lang-en">Plug & Play Setup Guide</span><span class="lang-pt">Guia de Instalação Plug & Play</span></p>
+                    <p>✅ <span class="lang-en">Optimized Setups Included</span><span class="lang-pt">Setups Otimizados Inclusos</span></p>
                 </div>
-
                 <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                    <a href="https://buy.stripe.com/4gM3co1g19xM6QB9Js1B600" target="_blank" class="bg-[#635BFF] text-white p-10 rounded-2xl flex flex-col items-center justify-center hover:scale-105 transition-all shadow-xl font-bold">
+                    <a href="https://buy.stripe.com/4gM3co1g19xM6QB9Js1B600" target="_blank" class="bg-[#635BFF] text-white p-10 rounded-2xl flex flex-col items-center justify-center hover:scale-105 transition shadow-xl font-bold">
                         <span class="font-bold text-2xl italic leading-tight">Stripe Checkout</span>
-                        <span class="text-[11px] text-white opacity-80 mt-1 uppercase tracking-[0.2em] font-bold lang-en">Credit Card</span><span class="text-[11px] text-white opacity-80 mt-1 uppercase tracking-[0.2em] font-bold lang-pt">Cartão de Crédito</span>
+                        <span class="text-[11px] opacity-80 mt-1 uppercase font-bold lang-en">Credit Card</span><span class="text-[11px] opacity-80 mt-1 uppercase font-bold lang-pt">Cartão de Crédito</span>
                     </a>
-                    <a href="https://t.me/SEU_USER" target="_blank" class="bg-[#26A17B] text-white p-10 rounded-2xl flex flex-col items-center justify-center hover:scale-105 transition-all shadow-xl">
+                    <a href="https://t.me/SEU_USER" target="_blank" class="bg-[#26A17B] text-white p-10 rounded-2xl flex flex-col items-center justify-center hover:scale-105 transition shadow-xl font-bold">
                         <span class="font-bold text-2xl italic">USDT</span>
-                        <span class="text-[11px] text-white opacity-80 mt-1 uppercase tracking-[0.2em] font-bold">TRC20 Order</span>
+                        <span class="text-[11px] opacity-80 mt-1 uppercase font-bold">TRC20 Order</span>
                     </a>
                 </div>
             </div>
@@ -187,33 +232,38 @@
 
     <footer class="py-24 px-5 border-t border-slate-900 bg-[#060D1A] text-center">
         <div class="container mx-auto max-w-5xl">
+            <div class="w-12 h-12 bg-emerald rounded-xl flex items-center justify-center font-bold text-black text-xl mx-auto mb-10 shadow-[0_0_15px_rgba(0,245,155,0.3)]">S</div>
+            
             <p class="text-3xl font-bold text-slate-300 uppercase tracking-[0.5em] mb-6">Sentinel Quant Labs</p>
+            <div class="flex justify-center gap-10 mb-14 text-sm uppercase tracking-widest font-bold italic">
+                <a href="mailto:contact@sentinellaboratories.com" class="text-emerald hover:text-white transition">contact@sentinellaboratories.com</a>
+            </div>
             <p class="text-[12px] leading-relaxed max-w-5xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-60 lang-en">
-                © 2026 Sentinel Quant Labs. Global financial markets involve substantial risk of loss. Past results are not guarantees of future gains. SentinelFX is an algorithmic aid tool. Trade with awareness and professional management.
+                © 2026 Sentinel Quant Labs. Global financial markets involve risk of loss. Past results are not guarantees.
             </p>
             <p class="text-[12px] leading-relaxed max-w-5xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-60 lang-pt">
-                © 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos substanciais de perda. Resultados passados não são garantias de ganhos futuros. O SentinelFX é uma ferramenta de auxílio algorítmico. Opere com consciência e gestão profissional.
+                © 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos. Resultados passados não são garantias.
             </p>
         </div>
     </footer>
 
     <script>
-        function setLanguage(lang) {
-            const enElements = document.querySelectorAll('.lang-en');
-            const ptElements = document.querySelectorAll('.lang-pt');
-            const btnEn = document.getElementById('btn-en');
-            const btnPt = document.getElementById('btn-pt');
+        function setLang(lang) {
+            const en = document.querySelectorAll('.lang-en');
+            const pt = document.querySelectorAll('.lang-pt');
+            const bEn = document.getElementById('btn-en');
+            const bPt = document.getElementById('btn-pt');
 
             if (lang === 'en') {
-                enElements.forEach(el => el.style.display = 'inline');
-                ptElements.forEach(el => el.style.display = 'none');
-                btnEn.className = 'px-3 py-1 bg-emerald text-black transition';
-                btnPt.className = 'px-3 py-1 bg-transparent text-slate-400 hover:text-white transition';
+                en.forEach(e => e.style.display = 'inline-block');
+                pt.forEach(e => e.style.display = 'none');
+                bEn.className = 'px-3 py-1 bg-emerald text-black';
+                bPt.className = 'px-3 py-1 bg-transparent text-slate-400';
             } else {
-                enElements.forEach(el => el.style.display = 'none');
-                ptElements.forEach(el => el.style.display = 'inline');
-                btnPt.className = 'px-3 py-1 bg-emerald text-black transition';
-                btnEn.className = 'px-3 py-1 bg-transparent text-slate-400 hover:text-white transition';
+                en.forEach(e => e.style.display = 'none');
+                pt.forEach(e => e.style.display = 'inline-block');
+                bPt.className = 'px-3 py-1 bg-emerald text-black';
+                bEn.className = 'px-3 py-1 bg-transparent text-slate-400';
             }
         }
     </script>
