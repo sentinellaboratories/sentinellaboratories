@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelFX | Official User Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #0B162C; color: white; scroll-behavior: smooth; }
+        .text-emerald { color: #00F59B; }
+        .bg-emerald { background-color: #00F59B; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .card-gradient { background: linear-gradient(145deg, #132342, #0B162C); border: 1px solid #8E9AAF33; }
+        .emerald-glow { box-shadow: 0 0 15px rgba(0, 245, 155, 0.3); }
+        
+        .logo-s {
+            width: 40px; height: 40px; background-color: #00F59B; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; color: #0B162C; font-size: 1.5rem;
+            box-shadow: 0 0 15px rgba(0, 245, 155, 0.4);
+        }
+
+        /* Lógica de Troca de Idioma */
+        .lang-pt { display: none; }
+
+        /* Estilização de código inline */
+        code { background-color: #060D1A; padding: 2px 6px; border-radius: 4px; color: #00F59B; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="py-6 px-4 border-b border-slate-800 sticky top-0 bg-[#0B162C]/95 backdrop-blur-md z-50">
+        <div class="container mx-auto flex justify-between items-center text-white max-w-6xl">
+            <div class="flex items-center gap-3">
+                <div class="logo-s text-black font-bold">S</div>
+                <span class="text-2xl font-bold tracking-tighter uppercase italic">SENTINEL<span class="text-emerald text-sm italic ml-1">FX</span></span>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="hidden md:block text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mr-4">
+                    <span class="lang-en">Official Documentation</span><span class="lang-pt">Documentação Oficial</span>
+                </span>
+                <div class="flex border border-slate-700 rounded-lg overflow-hidden text-[10px] font-bold">
+                    <button id="btn-en" onclick="setLang('en')" class="px-3 py-1 bg-emerald text-black">EN</button>
+                    <button id="btn-pt" onclick="setLang('pt')" class="px-3 py-1 bg-transparent text-slate-400 hover:text-white">PT</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-16 pb-12 px-4 border-b border-slate-800 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#132342] to-[#0B162C]">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter text-white">
+                <span class="lang-en">Mastering</span><span class="lang-pt">Dominando o</span> SENTINEL<span class="text-emerald italic">FX</span>
+            </h1>
+            <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+                <span class="lang-en">Complete installation guide and technical parameter breakdown for the ultimate quantitative trading experience.</span>
+                <span class="lang-pt">Guia completo de instalação e detalhamento técnico dos parâmetros para a melhor experiência de trading quantitativo.</span>
+            </p>
+        </div>
+    </section>
+
+    <div class="container mx-auto max-w-5xl px-4 py-12 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <aside class="hidden lg:block lg:col-span-1">
+            <div class="sticky top-32 space-y-2 font-bold text-sm uppercase tracking-widest text-slate-500">
+                <p class="text-emerald mb-4">ÍNDICE</p>
+                <a href="#installation" class="block py-2 hover:text-white transition"><span class="lang-en">1. Installation</span><span class="lang-pt">1. Instalação</span></a>
+                <a href="#dashboard" class="block py-2 hover:text-white transition"><span class="lang-en">2. On-Chart Dashboard</span><span class="lang-pt">2. Painel de Controle</span></a>
+                <a href="#strategy" class="block py-2 hover:text-white transition"><span class="lang-en">3. Strategy Settings</span><span class="lang-pt">3. Estratégia Principal</span></a>
+                <a href="#safety" class="block py-2 hover:text-white transition"><span class="lang-en">4. Safety System</span><span class="lang-pt">4. Sistema de Segurança</span></a>
+                <a href="#advanced" class="block py-2 hover:text-white transition"><span class="lang-en">5. Advanced Modules</span><span class="lang-pt">5. Módulos Avançados</span></a>
+            </div>
+        </aside>
+
+        <main class="lg:col-span-3 space-y-16">
+
+            <section id="installation" class="scroll-mt-32">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">1</div>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Installation Guide</span><span class="lang-pt">Guia de Instalação</span></h2>
+                </div>
+                <div class="card-gradient p-8 rounded-2xl">
+                    <ol class="space-y-6 text-slate-300 leading-relaxed">
+                        <li class="flex gap-4">
+                            <span class="font-black text-emerald mono">01</span>
+                            <div>
+                                <strong class="text-white block mb-1"><span class="lang-en">Locate MT5 Data Folder</span><span class="lang-pt">Abra a Pasta de Dados</span></strong>
+                                <span class="lang-en">Open MetaTrader 5. Go to <code>File</code> > <code>Open Data Folder</code>.</span>
+                                <span class="lang-pt">Abra o MetaTrader 5. Vá em <code>Arquivo</code> > <code>Abrir Pasta de Dados</code>.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="font-black text-emerald mono">02</span>
+                            <div>
+                                <strong class="text-white block mb-1"><span class="lang-en">Install the Algorithm</span><span class="lang-pt">Instale o Algoritmo</span></strong>
+                                <span class="lang-en">Navigate to <code>MQL5</code> > <code>Experts</code>. Paste the <code>SentinelFX.ex5</code> file here.</span>
+                                <span class="lang-pt">Navegue até <code>MQL5</code> > <code>Experts</code>. Cole o arquivo <code>SentinelFX.ex5</code> nesta pasta.</span>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="font-black text-emerald mono">03</span>
+                            <div>
+                                <strong class="text-white block mb-1"><span class="lang-en">Enable Auto Trading</span><span class="lang-pt">Ative o AutoTrading</span></strong>
+                                <span class="lang-en">In MT5, click the <code>Algo Trading</code> button on the top toolbar (it must be Green). Drag SentinelFX from the Navigator window onto your chart (EURUSD M1 recommended).</span>
+                                <span class="lang-pt">No MT5, clique no botão <code>Algo Trading</code> no menu superior (deve ficar Verde). Arraste o SentinelFX da janela Navegador para o seu gráfico (Recomendado EURUSD M1).</span>
+                            </div>
+                        </li>
+                    </ol>
+                    <div class="mt-8 p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
+                        <p class="text-red-400 text-sm font-bold uppercase tracking-wider mb-1"><span class="lang-en">⚠️ Important Requirement</span><span class="lang-pt">⚠️ Requisito Importante</span></p>
+                        <p class="text-slate-300 text-sm"><span class="lang-en">SentinelFX requires a <strong>Hedging</strong> account. It will not execute trades on Netting accounts.</span><span class="lang-pt">O SentinelFX exige uma conta do tipo <strong>Hedging</strong>. Ele não funcionará em contas do tipo Netting.</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="dashboard" class="scroll-mt-32">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">2</div>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">On-Chart Dashboard</span><span class="lang-pt">Painel de Controle</span></h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card-gradient p-6 rounded-2xl">
+                        <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">📊 Performance</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            <span class="lang-en">Tracks your Total, Daily, and Monthly Net Profit automatically. The <strong>Account Health</strong> bar displays your Equity vs. Balance ratio in real-time.</span>
+                            <span class="lang-pt">Rastreia seu Lucro Líquido Total, Diário e Mensal automaticamente. A barra <strong>Account Health</strong> exibe a proporção do seu Patrimônio vs Saldo em tempo real.</span>
+                        </p>
+                    </div>
+                    <div class="card-gradient p-6 rounded-2xl">
+                        <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">🛡️ Risk & Safety</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            <span class="lang-en">Monitors current Drawdown and Margin Level. The <strong>Safety Status</strong> indicator shows exactly what the algorithm's brain is processing (Scanning, Accumulating, or Safety Engaged).</span>
+                            <span class="lang-pt">Monitora o Drawdown e o Nível de Margem. O indicador <strong>Safety Status</strong> mostra exatamente o que o cérebro do algoritmo está processando no momento.</span>
+                        </p>
+                    </div>
+                    <div class="card-gradient p-6 rounded-2xl md:col-span-2">
+                        <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">⚡ Quick Controls</h3>
+                        <ul class="text-slate-400 text-sm leading-relaxed space-y-2">
+                            <li><strong class="text-red-400">CLOSE ALL:</strong> <span class="lang-en">Emergency button. Instantly closes all open positions and cancels pending orders.</span><span class="lang-pt">Botão de emergência. Fecha instantaneamente todas as posições abertas e cancela ordens pendentes.</span></li>
+                            <li><strong class="text-yellow-400">PAUSE/RESUME:</strong> <span class="lang-en">Temporarily stops the EA from opening NEW cycles (manages existing trades normally).</span><span class="lang-pt">Pausa o robô para não abrir NOVOS ciclos (ele continua gerenciando as ordens já abertas normalmente).</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="strategy" class="scroll-mt-32">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">3</div>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Strategy Settings</span><span class="lang-pt">Estratégia Principal</span></h2>
+                </div>
+                <div class="card-gradient rounded-2xl overflow-hidden">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-[#132342] text-emerald text-xs uppercase tracking-widest">
+                                <th class="p-4 border-b border-slate-700 w-1/3"><span class="lang-en">Parameter</span><span class="lang-pt">Parâmetro</span></th>
+                                <th class="p-4 border-b border-slate-700"><span class="lang-en">Description</span><span class="lang-pt">Descrição</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-slate-300">
+                            <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
+                                <td class="p-4 font-bold mono text-white">EntrySpacing</td>
+                                <td class="p-4 leading-relaxed">
+                                    <span class="lang-en">Distance in points between each accumulation grid level.</span>
+                                    <span class="lang-pt">Distância em pontos entre cada nível da grade de acumulação.</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
+                                <td class="p-4 font-bold mono text-white">TakeProfit</td>
+                                <td class="p-4 leading-relaxed">
+                                    <span class="lang-en">Global target in points from the Weighted Average Price (Breakeven) of the grid.</span>
+                                    <span class="lang-pt">Alvo global em pontos a partir do Preço Médio Ponderado (Breakeven) da grade.</span>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
+                                <td class="p-4 font-bold mono text-white">StartLot <span class="text-slate-500 font-normal">& LotIncrement</span></td>
+                                <td class="p-4 leading-relaxed">
+                                    <span class="lang-en">Base volume for the first trade, and the volume multiplier added to each subsequent level.</span>
+                                    <span class="lang-pt">Volume base da primeira ordem, e o incremento adicionado a cada novo nível.</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/20 transition">
+                                <td class="p-4 font-bold mono text-white">MaxLevels</td>
+                                <td class="p-4 leading-relaxed">
+                                    <span class="lang-en">Hard limit on how many positions the grid can open (0 = Disabled/Infinite).</span>
+                                    <span class="lang-pt">Limite rígido de quantas posições o robô pode abrir (0 = Desativado/Infinito).</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="safety" class="scroll-mt-32">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">4</div>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">The Safety System</span><span class="lang-pt">Sistema de Segurança</span></h2>
+                </div>
+                <div class="bg-emerald/5 p-8 rounded-2xl border border-emerald/20 mb-6 shadow-inner">
+                    <p class="text-slate-300 leading-relaxed mb-4">
+                        <span class="lang-en">The core of SentinelFX is the <strong>Rolling Window Technology</strong>. Instead of holding endless losing trades during a massive trend against you, the EA sacrifices the oldest losing trade and "recycles" its volume into the newest entry. This aggressively shifts your Breakeven line closer to the current market price, allowing the EA to exit the grid with a much smaller pullback.</span>
+                        <span class="lang-pt">O núcleo do SentinelFX é a <strong>Tecnologia de Janela Deslizante (Rolling Window)</strong>. Em vez de segurar ordens perdedoras infinitas contra uma forte tendência, o EA sacrifica a ordem mais antiga e "recicla" o volume dela na entrada mais nova. Isso puxa agressivamente sua linha de Breakeven para perto do preço atual, permitindo fechar o ciclo com um respiro mínimo do mercado.</span>
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
+                        <h3 class="text-white font-bold mono text-lg mb-2">SafetyWindow <span class="text-emerald text-sm">(Default: 6)</span></h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">The maximum number of active grid positions. When level 7 opens, position 1 is closed.</span>
+                            <span class="lang-pt">O número máximo de posições ativas. Quando o nível 7 for abrir, a posição 1 é fechada.</span>
+                        </p>
+                    </div>
+                    <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
+                        <h3 class="text-white font-bold mono text-lg mb-2">RecyclePercent <span class="text-emerald text-sm">(Default: 50.0)</span></h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">The percentage of the closed trade's volume added as a "boost" to the new level, accelerating recovery.</span>
+                            <span class="lang-pt">A porcentagem do volume da ordem fechada que é adicionada como um "boost" no novo nível, acelerando a recuperação.</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="advanced" class="scroll-mt-32">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">5</div>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Advanced Modules</span><span class="lang-pt">Módulos Avançados</span></h2>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="card-gradient p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">⚡</span> Quick Profit Target</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            <span class="lang-en"><strong>Micro-Scalping Cashflow:</strong> Once the Safety Window is full, the algorithm assigns a micro Take Profit (e.g., 100 points) solely to the outermost, heaviest level. If hit, it cashes out immediately and places a Limit Order to re-enter if the price pulls back. This generates continuous profit while waiting for the main trend reversal.</span>
+                            <span class="lang-pt"><strong>Micro-Scalping (Fluxo de Caixa):</strong> Quando a Janela de Segurança enche, o algoritmo atribui um micro Take Profit (ex: 100 pontos) apenas para o último e mais pesado nível. Se atingido, ele põe o lucro no bolso e deixa uma ordem Limit armada para reentrar no mesmo lugar. Isso gera lucro contínuo enquanto espera a reversão principal.</span>
+                        </p>
+                    </div>
+
+                    <div class="card-gradient p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">🔄</span> Hedge Sub-System</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            <span class="lang-en">While the main grid accumulates against the trend, the Hedge manager opens small positions <strong>WITH</strong> the trend.</span>
+                            <span class="lang-pt">Enquanto a grade principal acumula contra a tendência, o gerenciador de Hedge abre posições menores <strong>A FAVOR</strong> da tendência.</span>
+                        </p>
+                        <ul class="text-slate-300 text-sm space-y-3 pl-4 border-l-2 border-slate-700">
+                            <li><strong class="text-white mono">HedgeTP:</strong> <span class="lang-en">Take profit for the micro hedge trades.</span><span class="lang-pt">Alvo de lucro das micro-operações de hedge.</span></li>
+                            <li><strong class="text-white mono">HedgeLotPercent:</strong> <span class="lang-en">How big the hedge should be relative to the grid volume (e.g., 10% offsets drawdown without risking the account).</span><span class="lang-pt">O tamanho do hedge em relação ao volume da grade (ex: 10% ajuda a amortecer o drawdown sem travar a margem da conta).</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="py-16 px-5 border-t border-slate-900 bg-[#060D1A] text-center">
+        <div class="container mx-auto max-w-5xl">
+            <div class="w-12 h-12 bg-emerald rounded-xl flex items-center justify-center font-bold text-black text-xl mx-auto mb-8 shadow-[0_0_15px_rgba(0,245,155,0.3)]">S</div>
+            <p class="text-2xl font-bold text-slate-300 uppercase tracking-[0.5em] mb-4">Sentinel Quant Labs</p>
+            <p class="text-[11px] leading-relaxed max-w-3xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-40">
+                <span class="lang-en">© 2026 Sentinel Quant Labs. Global financial markets involve risk of loss. Past results are not guarantees.</span>
+                <span class="lang-pt">© 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos. Resultados passados não são garantias.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            const en = document.querySelectorAll('.lang-en');
+            const pt = document.querySelectorAll('.lang-pt');
+            const bEn = document.getElementById('btn-en');
+            const bPt = document.getElementById('btn-pt');
+
+            if (lang === 'en') {
+                en.forEach(e => e.style.display = 'inline-block');
+                pt.forEach(e => e.style.display = 'none');
+                bEn.className = 'px-3 py-1 bg-emerald text-black';
+                bPt.className = 'px-3 py-1 bg-transparent text-slate-400 hover:text-white';
+            } else {
+                en.forEach(e => e.style.display = 'none');
+                pt.forEach(e => e.style.display = 'inline-block');
+                bPt.className = 'px-3 py-1 bg-emerald text-black';
+                bEn.className = 'px-3 py-1 bg-transparent text-slate-400 hover:text-white';
+            }
+        }
+    </script>
+</body>
+</html>
