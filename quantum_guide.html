@@ -70,7 +70,7 @@
                 <a href="#installation" class="block py-2 hover:text-white transition"><span class="lang-en">1. Installation</span><span class="lang-pt">1. Instalação</span></a>
                 <a href="#dashboard" class="block py-2 hover:text-white transition"><span class="lang-en">2. Precision HUD</span><span class="lang-pt">2. Painel de Precisão</span></a>
                 <a href="#indicators" class="block py-2 hover:text-white transition"><span class="lang-en">3. Sniper Entries</span><span class="lang-pt">3. Entradas Sniper</span></a>
-                <a href="#dynamic" class="block py-2 hover:text-white transition"><span class="lang-en">4. Dynamic Grid (ATR)</span><span class="lang-pt">4. Grade Dinâmica (ATR)</span></a>
+                <a href="#dynamic" class="block py-2 hover:text-white transition"><span class="lang-en">4. Adaptive Scaling</span><span class="lang-pt">4. Escalamento Adaptativo</span></a>
                 <a href="#protection" class="block py-2 hover:text-white transition"><span class="lang-en">5. Prop Firm Failsafe</span><span class="lang-pt">5. Travas de Segurança</span></a>
             </div>
         </aside>
@@ -140,56 +140,34 @@
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">3</div>
                     <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Sniper Entry Logic</span><span class="lang-pt">Lógica de Entrada Sniper</span></h2>
                 </div>
-                <div class="card-gradient rounded-2xl overflow-hidden mb-6">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-[#132342] text-emerald text-xs uppercase tracking-widest">
-                                <th class="p-4 border-b border-slate-700 w-1/3"><span class="lang-en">Indicator Parameter</span><span class="lang-pt">Parâmetro Indicador</span></th>
-                                <th class="p-4 border-b border-slate-700"><span class="lang-en">Technical Description</span><span class="lang-pt">Descrição Técnica</span></th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-sm text-slate-300">
-                            <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
-                                <td class="p-4 font-bold mono text-white">InpRSI_Period <br><span class="text-slate-500 font-normal text-xs uppercase tracking-wider">Momentum Filter</span></td>
-                                <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Measures momentum exhaustion. The EA only activates its grid protocol when the RSI hits extremes (e.g., 75/25), ensuring trades are placed at peak statistical reversal zones.</span>
-                                    <span class="lang-pt">Mede a exaustão do momento. O EA só ativa o protocolo da grade quando o RSI atinge extremos (ex: 75/25), garantindo entradas nas melhores zonas estatísticas de reversão.</span>
-                                </td>
-                            </tr>
-                            <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
-                                <td class="p-4 font-bold mono text-white">InpBB_Period <br><span class="text-slate-500 font-normal text-xs uppercase tracking-wider">Deviation Trigger</span></td>
-                                <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Bollinger Bands act as the final trigger. The EA executes the trade when the price violently pierces the outer band (Deviation e.g., 2.5), confirming overextension.</span>
-                                    <span class="lang-pt">As Bandas de Bollinger agem como o gatilho final. O EA executa a ordem quando o preço rompe violentamente a banda externa (Desvio ex: 2.5), confirmando a sobre-extensão.</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="card-gradient p-8 rounded-2xl mb-6">
+                    <p class="text-slate-300 leading-relaxed lang-en">QuantumGrid employs a proprietary dual-confirmation entry system. The algorithm monitors momentum exhaustion and statistical price deviation simultaneously. A trade is only executed when both independent filters converge — ensuring entries occur exclusively at high-probability reversal zones. This is why the algorithm achieves a 64.8% win rate with a 2.37 Profit Factor.</p>
+                    <p class="text-slate-300 leading-relaxed lang-pt">O QuantumGrid utiliza um sistema proprietário de entrada com dupla confirmação. O algoritmo monitora exaustão de momento e desvio estatístico de preço simultaneamente. Uma operação só é executada quando ambos os filtros independentes convergem — garantindo entradas exclusivamente em zonas de reversão de alta probabilidade. É por isso que o algoritmo alcança 64.8% de taxa de acerto com Fator de Lucro de 2.37.</p>
                 </div>
             </section>
 
             <section id="dynamic" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">4</div>
-                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Dynamic Grid Scaling (ATR)</span><span class="lang-pt">Escalonamento Dinâmico (ATR)</span></h2>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Adaptive Position Scaling</span><span class="lang-pt">Escalonamento Adaptativo de Posições</span></h2>
                 </div>
                 <div class="bg-emerald/5 p-8 rounded-2xl border border-emerald/20 mb-6 shadow-inner">
                     <p class="text-slate-300 leading-relaxed mb-4">
-                        <span class="lang-en">Unlike fixed grids that blindly open trades every 10 or 20 pips, Quantum Grid reads the market's pulse. Using the <strong>Average True Range (ATR)</strong>, it calculates the distance for the next grid level dynamically. If volatility spikes and the market moves fast, the grid stretches automatically, preventing hazardous trade accumulation.</span>
-                        <span class="lang-pt">Diferente de grades fixas que abrem ordens às cegas a cada 10 pips, o Quantum Grid lê o pulso do mercado. Usando o <strong>Average True Range (ATR)</strong>, ele calcula a distância do próximo nível de forma dinâmica. Se a volatilidade subir, a grade se expande automaticamente, prevenindo o acúmulo perigoso de ordens.</span>
+                        <span class="lang-en">Unlike rigid systems that use fixed distances, QuantumGrid reads real-time market volatility to dynamically adjust its recovery spacing. When the market moves faster, the algorithm automatically widens its levels — preventing dangerous position clustering. When conditions normalize, spacing tightens for faster recovery. This adaptive mechanism is why the Maximum Balance Drawdown is just 0.26% over 7 years.</span>
+                        <span class="lang-pt">Diferente de sistemas rígidos que usam distâncias fixas, o QuantumGrid lê a volatilidade do mercado em tempo real para ajustar dinamicamente o espaçamento de recuperação. Quando o mercado se move mais rápido, o algoritmo automaticamente amplia seus níveis — prevenindo acúmulo perigoso de posições. Quando as condições normalizam, o espaçamento se estreita para recuperação mais rápida. Este mecanismo adaptativo é o motivo pelo qual o Drawdown Máximo de Balanço é de apenas 0.26% em 7 anos.</span>
                     </p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
-                        <h3 class="text-white font-bold mono text-lg mb-2">InpATR_Multiplier</h3>
+                        <h3 class="text-white font-bold mono text-lg mb-2">Spacing Sensitivity</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en">Multiplies the current ATR value to set the minimum distance to the next level. Higher = safer.</span>
-                            <span class="lang-pt">Multiplica o valor atual do ATR para definir a distância mínima do próximo nível. Maior = mais seguro.</span>
+                            <span class="lang-en">Multiplies the current market volatility value to set the minimum distance to the next level. Higher = safer.</span>
+                            <span class="lang-pt">Multiplica o valor atual da volatilidade do mercado para definir a distância mínima do próximo nível. Maior = mais seguro.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
-                        <h3 class="text-white font-bold mono text-lg mb-2">InpLotMultiplier</h3>
+                        <h3 class="text-white font-bold mono text-lg mb-2">Recovery Intensity</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en">The exact factor (e.g., 1.5x) the volume increases on recovery levels to pull the breakeven line closer.</span>
                             <span class="lang-pt">O fator exato (ex: 1.5x) que o volume aumenta na recuperação para puxar a linha de breakeven mais perto.</span>
@@ -207,7 +185,7 @@
                 <div class="space-y-6">
                     <div class="card-gradient p-8 rounded-2xl border border-red-500/30 relative">
                         <div class="absolute top-0 right-8 bg-red-500 text-white text-[10px] font-bold px-4 py-1.5 uppercase tracking-[0.2em] rounded-b-lg">Critical Risk Control</div>
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">InpMaxDrawdown <span class="text-slate-500 text-sm">(Default: 15.0)</span></h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">Max Risk Threshold <span class="text-slate-500 text-sm">(Default: 15.0)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en"><strong>The Account Guardian.</strong> This is the paramount setting for funded challenges. If your total floating loss ever touches this exact percentage of your account balance, Quantum Grid engages an emergency shutdown, liquidating all open positions immediately. This guarantees you will never breach a Prop Firm's daily or total loss limits.</span>
                             <span class="lang-pt"><strong>O Guardião da Conta.</strong> Esta é a configuração suprema para desafios financiados. Se a sua perda flutuante total tocar essa porcentagem exata, o Quantum Grid ativa o desligamento de emergência, liquidando todas as posições abertas imediatamente. Isso garante que você nunca viole as regras de perda máxima da Mesa.</span>
@@ -215,7 +193,7 @@
                     </div>
 
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">InpBasketTP_Money</h3>
+                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">Cycle Profit Target</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
                             <span class="lang-en">Instead of closing trades based on complex pip calculations, this parameter allows the algorithm to close the entire active cycle as soon as it reaches a fixed monetary profit in your account currency (e.g., $10). Highly predictable and efficient for securing daily challenge goals.</span>
                             <span class="lang-pt">Em vez de fechar operações baseadas em cálculos complexos de pips, este parâmetro permite que o robô feche o ciclo ativo inteiro assim que atingir um lucro monetário fixo na moeda da conta (ex: $10). Altamente previsível e eficiente para garantir a meta diária do desafio.</span>
@@ -231,10 +209,15 @@
         <div class="container mx-auto max-w-5xl">
             <div class="w-12 h-12 bg-emerald rounded-xl flex items-center justify-center font-bold text-black text-xl mx-auto mb-8 shadow-[0_0_15px_rgba(0,245,155,0.3)]">S</div>
             <p class="text-2xl font-bold text-slate-300 uppercase tracking-[0.5em] mb-4">Sentinel Quant Labs</p>
-            <p class="text-[11px] leading-relaxed max-w-3xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-40">
+            <p class="text-[11px] leading-relaxed max-w-3xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-40 mb-6">
                 <span class="lang-en">© 2026 Sentinel Quant Labs. Global financial markets involve risk of loss. Past results are not guarantees.</span>
                 <span class="lang-pt">© 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos. Resultados passados não são garantias.</span>
             </p>
+            
+            <div class="risk-disclaimer pt-8 border-t border-slate-800 text-xs text-slate-500 opacity-80 leading-relaxed text-center">
+                <p class="lang-en"><strong>RISK WARNING:</strong> Trading foreign exchange carries significant risk of loss. Past performance validated through backtesting does not guarantee future results. Never invest capital you cannot afford to lose.</p>
+                <p class="lang-pt"><strong>AVISO DE RISCO:</strong> Operar no mercado de câmbio envolve risco significativo de perda. Resultados passados validados por backtesting não garantem resultados futuros. Nunca invista capital que não pode perder.</p>
+            </div>
         </div>
     </footer>
 
