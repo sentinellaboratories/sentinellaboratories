@@ -130,7 +130,7 @@
                     <div class="card-gradient p-6 rounded-2xl">
                         <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">🛡️ Risk & Safety</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">Monitors current Drawdown and Margin Level. The <strong>Safety Status</strong> indicator shows exactly what the algorithm's brain is processing (Scanning, Accumulating, or Safety Engaged).</span>
+                            <span class="lang-en">Monitors current Drawdown and Margin Level. The <strong>Safety Status</strong> indicator shows exactly what the algorithm's brain is processing.</span>
                             <span class="lang-pt">Monitora o Drawdown e o Nível de Margem. O indicador <strong>Safety Status</strong> mostra exatamente o que o cérebro do algoritmo está processando no momento.</span>
                         </p>
                     </div>
@@ -161,15 +161,15 @@
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
                                 <td class="p-4 font-bold mono text-white">EntrySpacing</td>
                                 <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Distance in points between each accumulation grid level.</span>
-                                    <span class="lang-pt">Distância em pontos entre cada nível da grade de acumulação.</span>
+                                    <span class="lang-en">Distance in points between each accumulation recovery level.</span>
+                                    <span class="lang-pt">Distância em pontos entre cada nível de recuperação da acumulação.</span>
                                 </td>
                             </tr>
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
                                 <td class="p-4 font-bold mono text-white">TakeProfit</td>
                                 <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Global target in points from the Weighted Average Price (Breakeven) of the grid.</span>
-                                    <span class="lang-pt">Alvo global em pontos a partir do Preço Médio Ponderado (Breakeven) da grade.</span>
+                                    <span class="lang-en">Global target in points from the Weighted Average Price (Breakeven) of the recovery levels.</span>
+                                    <span class="lang-pt">Alvo global em pontos a partir do Preço Médio Ponderado (Breakeven) dos níveis de recuperação.</span>
                                 </td>
                             </tr>
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
@@ -182,8 +182,8 @@
                             <tr class="hover:bg-slate-800/20 transition">
                                 <td class="p-4 font-bold mono text-white">MaxLevels</td>
                                 <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Hard limit on how many positions the grid can open (0 = Disabled/Infinite).</span>
-                                    <span class="lang-pt">Limite rígido de quantas posições o robô pode abrir (0 = Desativado/Infinito).</span>
+                                    <span class="lang-en">Hard limit on how many positions the recovery system can open (0 = Disabled/Infinite).</span>
+                                    <span class="lang-pt">Limite rígido de quantas posições o sistema de recuperação pode abrir (0 = Desativado/Infinito).</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -198,17 +198,17 @@
                 </div>
                 <div class="bg-emerald/5 p-8 rounded-2xl border border-emerald/20 mb-6 shadow-inner">
                     <p class="text-slate-300 leading-relaxed mb-4">
-                        <span class="lang-en">The core of SentinelFX is the <strong>Rolling Window Technology</strong>. Instead of holding endless losing trades during a massive trend against you, the EA sacrifices the oldest losing trade and "recycles" its volume into the newest entry. This aggressively shifts your Breakeven line closer to the current market price, allowing the EA to exit the grid with a much smaller pullback.</span>
-                        <span class="lang-pt">O núcleo do SentinelFX é a <strong>Tecnologia de Janela Deslizante (Rolling Window)</strong>. Em vez de segurar ordens perdedoras infinitas contra uma forte tendência, o EA sacrifica a ordem mais antiga e "recicla" o volume dela na entrada mais nova. Isso puxa agressivamente sua linha de Breakeven para perto do preço atual, permitindo fechar o ciclo com um respiro mínimo do mercado.</span>
+                        <span class="lang-en">The core of SentinelFX is the <strong>Proprietary Position Rotation System</strong>. Instead of holding endless losing trades during a massive trend against you, the EA actively manages risk by sacrificing the oldest losing trade and "recycles" its volume into the newest entry. This aggressively shifts your Breakeven line closer to the current market price, allowing the EA to exit the cycle with a much smaller pullback.</span>
+                        <span class="lang-pt">O núcleo do SentinelFX é o <strong>Sistema Proprietário de Rotação de Posições</strong>. Em vez de segurar ordens perdedoras infinitas contra uma forte tendência, o EA gerencia o risco sacrificando a ordem mais antiga e "recicla" o volume dela na entrada mais nova. Isso puxa agressivamente sua linha de Breakeven para perto do preço atual, permitindo fechar o ciclo com um respiro mínimo do mercado.</span>
                     </p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
-                        <h3 class="text-white font-bold mono text-lg mb-2">SafetyWindow <span class="text-emerald text-sm">(Default: 6)</span></h3>
+                        <h3 class="text-white font-bold mono text-lg mb-2">PositionRotation <span class="text-emerald text-sm">(Default: 6)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en">The maximum number of active grid positions. When level 7 opens, position 1 is closed.</span>
-                            <span class="lang-pt">O número máximo de posições ativas. Quando o nível 7 for abrir, a posição 1 é fechada.</span>
+                            <span class="lang-en">The maximum number of active recovery positions. When level 7 opens, position 1 is closed.</span>
+                            <span class="lang-pt">O número máximo de posições ativas de recuperação. Quando o nível 7 for abrir, a posição 1 é fechada.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
@@ -231,20 +231,20 @@
                     <div class="card-gradient p-8 rounded-2xl">
                         <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">⚡</span> Quick Profit Target</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en"><strong>Micro-Scalping Cashflow:</strong> Once the Safety Window is full, the algorithm assigns a micro Take Profit (e.g., 100 points) solely to the outermost, heaviest level. If hit, it cashes out immediately and places a Limit Order to re-enter if the price pulls back. This generates continuous profit while waiting for the main trend reversal.</span>
-                            <span class="lang-pt"><strong>Micro-Scalping (Fluxo de Caixa):</strong> Quando a Janela de Segurança enche, o algoritmo atribui um micro Take Profit (ex: 100 pontos) apenas para o último e mais pesado nível. Se atingido, ele põe o lucro no bolso e deixa uma ordem Limit armada para reentrar no mesmo lugar. Isso gera lucro contínuo enquanto espera a reversão principal.</span>
+                            <span class="lang-en"><strong>Micro-Scalping Cashflow:</strong> Once the Position Rotation is active, the algorithm assigns a micro Take Profit (e.g., 100 points) solely to the outermost, heaviest level. If hit, it cashes out immediately and places a Limit Order to re-enter if the price pulls back. This generates continuous profit while waiting for the main trend reversal.</span>
+                            <span class="lang-pt"><strong>Micro-Scalping (Fluxo de Caixa):</strong> Quando a Rotação de Posições está ativa, o algoritmo atribui um micro Take Profit (ex: 100 pontos) apenas para o último e mais pesado nível. Se atingido, ele põe o lucro no bolso e deixa uma ordem Limit armada para reentrar no mesmo lugar. Isso gera lucro contínuo enquanto espera a reversão principal.</span>
                         </p>
                     </div>
 
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">🔄</span> Hedge Sub-System</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">🔄</span> Market-Neutral Sub-System</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">While the main grid accumulates against the trend, the Hedge manager opens small positions <strong>WITH</strong> the trend.</span>
-                            <span class="lang-pt">Enquanto a grade principal acumula contra a tendência, o gerenciador de Hedge abre posições menores <strong>A FAVOR</strong> da tendência.</span>
+                            <span class="lang-en">While the main recovery system accumulates against the trend, the Market-Neutral manager opens small positions <strong>WITH</strong> the trend.</span>
+                            <span class="lang-pt">Enquanto o sistema de recuperação principal acumula contra a tendência, o gerenciador Neutro ao Mercado abre posições menores <strong>A FAVOR</strong> da tendência.</span>
                         </p>
                         <ul class="text-slate-300 text-sm space-y-3 pl-4 border-l-2 border-slate-700">
-                            <li><strong class="text-white mono">HedgeTP:</strong> <span class="lang-en">Take profit for the micro hedge trades.</span><span class="lang-pt">Alvo de lucro das micro-operações de hedge.</span></li>
-                            <li><strong class="text-white mono">HedgeLotPercent:</strong> <span class="lang-en">How big the hedge should be relative to the grid volume (e.g., 10% offsets drawdown without risking the account).</span><span class="lang-pt">O tamanho do hedge em relação ao volume da grade (ex: 10% ajuda a amortecer o drawdown sem travar a margem da conta).</span></li>
+                            <li><strong class="text-white mono">NeutralTP:</strong> <span class="lang-en">Take profit for the micro market-neutral trades.</span><span class="lang-pt">Alvo de lucro das micro-operações de neutralização.</span></li>
+                            <li><strong class="text-white mono">NeutralLotPercent:</strong> <span class="lang-en">How big the neutral position should be relative to the recovery volume (e.g., 10% offsets drawdown without risking the account).</span><span class="lang-pt">O tamanho da posição neutra em relação ao volume de recuperação (ex: 10% ajuda a amortecer o drawdown sem travar a margem da conta).</span></li>
                         </ul>
                     </div>
                 </div>
@@ -257,10 +257,15 @@
         <div class="container mx-auto max-w-5xl">
             <div class="w-12 h-12 bg-emerald rounded-xl flex items-center justify-center font-bold text-black text-xl mx-auto mb-8 shadow-[0_0_15px_rgba(0,245,155,0.3)]">S</div>
             <p class="text-2xl font-bold text-slate-300 uppercase tracking-[0.5em] mb-4">Sentinel Quant Labs</p>
-            <p class="text-[11px] leading-relaxed max-w-3xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-40">
+            <p class="text-[11px] leading-relaxed max-w-3xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-40 mb-6">
                 <span class="lang-en">© 2026 Sentinel Quant Labs. Global financial markets involve risk of loss. Past results are not guarantees.</span>
                 <span class="lang-pt">© 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos. Resultados passados não são garantias.</span>
             </p>
+            
+            <div class="risk-disclaimer pt-8 border-t border-slate-800 text-xs text-slate-500 opacity-80 leading-relaxed text-center">
+                <p class="lang-en"><strong>RISK WARNING:</strong> Trading foreign exchange carries significant risk of loss. Past performance validated through backtesting does not guarantee future results. Never invest capital you cannot afford to lose.</p>
+                <p class="lang-pt"><strong>AVISO DE RISCO:</strong> Operar no mercado de câmbio envolve risco significativo de perda. Resultados passados validados por backtesting não garantem resultados futuros. Nunca invista capital que não pode perder.</p>
+            </div>
         </div>
     </footer>
 
