@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentinel Quant Labs | Advanced Trading Algorithms</title>
+    <meta name="description" content="Institutional-grade algorithmic trading systems validated across 7 years of real-tick data. SentinelFX and QuantumGrid Pro for MetaTrader 5.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
@@ -21,10 +22,8 @@
             box-shadow: 0 0 15px rgba(0, 245, 155, 0.4);
         }
 
-        /* Lógica de Troca de Idioma */
         .lang-pt { display: none; }
 
-        /* Estilo para os Widgets do MyFxBook */
         .widget-container {
             width: 100%;
             min-height: 200px;
@@ -34,10 +33,35 @@
             background: rgba(6, 13, 26, 0.5);
             border-radius: 12px;
         }
+
+        .step-number {
+            width: 48px; height: 48px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .pricing-badge {
+            position: absolute; top: -1px; right: 24px;
+            padding: 6px 16px; border-radius: 0 0 8px 8px;
+            font-size: 10px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.15em;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        details summary { cursor: pointer; list-style: none; }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] summary .faq-arrow { transform: rotate(180deg); }
+        .faq-arrow { transition: transform 0.2s ease; }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- ========== HEADER ========== -->
     <header class="py-6 px-4 border-b border-slate-800 sticky top-0 bg-[#0B162C]/95 backdrop-blur-md z-50">
         <div class="container mx-auto flex justify-between items-center text-white">
             <div class="flex items-center gap-3">
@@ -50,9 +74,10 @@
             <div class="flex items-center gap-6">
                 <nav class="hidden md:flex gap-6 text-sm font-semibold uppercase tracking-widest text-slate-400">
                     <a href="#engines" class="hover:text-emerald transition"><span class="lang-en">Algorithms</span><span class="lang-pt">Algoritmos</span></a>
-                    <a href="#vendas" class="hover:text-emerald transition"><span class="lang-en">Technology</span><span class="lang-pt">Tecnologia</span></a>
+                    <a href="#technology" class="hover:text-emerald transition"><span class="lang-en">Technology</span><span class="lang-pt">Tecnologia</span></a>
                     <a href="#checkout" class="hover:text-emerald transition"><span class="lang-en">Acquire</span><span class="lang-pt">Adquirir</span></a>
-                    <a href="#engines" class="hover:text-emerald transition"><span class="lang-en">Docs</span><span class="lang-pt">Docs</span></a>
+                    <a href="#ib-program" class="hover:text-emerald transition"><span class="lang-en">Free Access</span><span class="lang-pt">Acesso Grátis</span></a>
+                    <a href="#faq" class="hover:text-emerald transition">FAQ</a>
                 </nav>
                 <div class="flex border border-slate-700 rounded-lg overflow-hidden text-[10px] font-bold">
                     <button id="btn-en" onclick="setLang('en')" class="px-3 py-1 bg-emerald text-black">EN</button>
@@ -62,6 +87,7 @@
         </div>
     </header>
 
+    <!-- ========== HERO ========== -->
     <section class="pt-20 pb-12 px-4 text-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#132342] to-[#0B162C]">
         <div class="container mx-auto max-w-5xl">
             <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight uppercase tracking-tighter text-white">
@@ -76,11 +102,12 @@
                 <a href="#engines" class="bg-emerald text-black px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition transform shadow-lg shadow-emerald/20">
                     <span class="lang-en">Explore Algorithms</span><span class="lang-pt">Explorar Algoritmos</span>
                 </a>
-                <a href="https://t.me/SEU_USER" target="_blank" class="bg-transparent border border-slate-700 text-slate-300 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 hover:text-white transition">
+                <a href="#ib-program" class="bg-transparent border border-slate-700 text-slate-300 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 hover:text-white transition">
                     <span class="lang-en">Free Access via IB Broker</span><span class="lang-pt">Acesso Grátis via Corretora</span>
                 </a>
             </div>
 
+            <!-- MyFxBook Widgets -->
             <div class="card-gradient rounded-2xl border border-slate-700 max-w-5xl mx-auto p-6 relative overflow-hidden shadow-2xl">
                 <div class="flex items-center justify-between mb-8 px-2">
                     <div class="flex items-center gap-2 bg-[#0B162C]/80 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm">
@@ -91,38 +118,25 @@
                         <span class="lang-en">Real-Time Monitoring</span><span class="lang-pt">Monitoramento em Tempo Real</span>
                     </div>
                 </div>
-
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="flex flex-col items-center">
                         <h4 class="text-xs font-bold uppercase tracking-widest text-emerald mb-4">SentinelFX Performance</h4>
                         <div class="widget-container" style="overflow: hidden; border-radius: 8px;">
-                            <iframe src="https://widgets.myfxbook.com/custom-widget?id=12004281&width=450&height=250&bart=0&linet=0&symbol=AUDCAD&magic=-1&title=Sentinel_FX&titles=12&bgColor=000000&gridColor=bdbdbd&lineColor=00cb05&barColor=82ff85&bar1Color=82ff85&fontColor=ffffff&chartbgc=000000&equityColor=eff45a" 
-                                    width="100%" 
-                                    height="250" 
-                                    frameborder="0" 
-                                    scrolling="no" 
-                                    style="max-width: 450px; border-radius: 8px;">
-                            </iframe>
+                            <iframe src="https://widgets.myfxbook.com/custom-widget?id=12004281&width=450&height=250&bart=0&linet=0&symbol=AUDCAD&magic=-1&title=Sentinel_FX&titles=12&bgColor=000000&gridColor=bdbdbd&lineColor=00cb05&barColor=82ff85&bar1Color=82ff85&fontColor=ffffff&chartbgc=000000&equityColor=eff45a" width="100%" height="250" frameborder="0" scrolling="no" style="max-width: 450px; border-radius: 8px;"></iframe>
                         </div>
                     </div>
-
                     <div class="flex flex-col items-center">
                         <h4 class="text-xs font-bold uppercase tracking-widest text-emerald mb-4">QuantumGrid Performance</h4>
                         <div class="widget-container" style="overflow: hidden; border-radius: 8px;">
-                            <iframe src="https://widgets.myfxbook.com/custom-widget?id=12004281&width=450&height=250&bart=0&linet=0&symbol=AUDCAD&magic=-1&title=Quantum_Grid&titles=12&bgColor=000000&gridColor=bdbdbd&lineColor=00cb05&barColor=82ff85&bar1Color=82ff85&fontColor=ffffff&chartbgc=000000&equityColor=eff45a" 
-                                    width="100%" 
-                                    height="250" 
-                                    frameborder="0" 
-                                    scrolling="no" 
-                                    style="max-width: 450px; border-radius: 8px;">
-                            </iframe>
+                            <iframe src="https://widgets.myfxbook.com/custom-widget?id=12004281&width=450&height=250&bart=0&linet=0&symbol=AUDCAD&magic=-1&title=Quantum_Grid&titles=12&bgColor=000000&gridColor=bdbdbd&lineColor=00cb05&barColor=82ff85&bar1Color=82ff85&fontColor=ffffff&chartbgc=000000&equityColor=eff45a" width="100%" height="250" frameborder="0" scrolling="no" style="max-width: 450px; border-radius: 8px;"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
+    <!-- ========== ENGINES / ALGORITHMS ========== -->
     <section id="engines" class="py-20 px-4 border-t border-slate-800 bg-[#0B162C]">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 uppercase italic">
@@ -131,13 +145,13 @@
             </h2>
 
             <div class="grid md:grid-cols-2 gap-10">
-                
+                <!-- SentinelFX -->
                 <div class="card-gradient rounded-3xl p-8 border-t-4 border-t-emerald hover:shadow-[0_0_30px_rgba(0,245,155,0.15)] transition-all flex flex-col">
                     <h3 class="text-3xl font-black italic tracking-tighter mb-2 uppercase">SENTINEL<span class="text-emerald">FX</span></h3>
                     <p class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-6">The Workhorse • Aggressive Growth</p>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6 h-24">
-                        <span class="lang-en">Engineered for aggressive capital growth through continuous market participation. Proprietary position management system compounds gains while actively recovering from adverse movements. Best suited for personal accounts seeking maximum return.</span>
-                        <span class="lang-pt">Projetado para crescimento agressivo de capital através de participação contínua no mercado. Sistema proprietário de gestão de posições que acumula ganhos enquanto recupera ativamente de movimentos adversos. Ideal para contas pessoais que buscam retorno máximo.</span>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 min-h-[96px]">
+                        <span class="lang-en">Engineered for aggressive capital growth through continuous market participation. Proprietary position rotation system compounds gains while actively recovering from adverse movements. Multi-layer safety architecture with volatility-adaptive filtering ensures controlled exposure at all times.</span>
+                        <span class="lang-pt">Projetado para crescimento agressivo de capital através de participação contínua no mercado. Sistema proprietário de rotação de posições que acumula ganhos enquanto recupera ativamente de movimentos adversos. Arquitetura de segurança multicamadas com filtragem adaptativa de volatilidade garante exposição controlada em todos os momentos.</span>
                     </p>
                     
                     <a href="sentinelfx_guide.html" target="_blank" class="text-emerald hover:text-white text-xs font-bold uppercase tracking-widest transition-colors mb-8 inline-block">
@@ -158,18 +172,35 @@
                             <p class="text-2xl font-bold mono text-emerald">69.9%</p>
                         </div>
                         <div class="bg-[#060D1A] p-4 rounded-xl border border-slate-800">
-                            <p class="text-slate-500 text-[10px] uppercase tracking-widest mb-1">Total Trades</p>
-                            <p class="text-2xl font-bold mono text-slate-300">3,295</p>
+                            <p class="text-slate-500 text-[10px] uppercase tracking-widest mb-1">Net Profit (7yr)</p>
+                            <p class="text-2xl font-bold mono text-emerald">$9,454</p>
+                        </div>
+                    </div>
+
+                    <!-- Expanded metrics -->
+                    <div class="grid grid-cols-3 gap-3 mt-4">
+                        <div class="bg-[#060D1A] p-3 rounded-lg border border-slate-800/50 text-center">
+                            <p class="text-slate-600 text-[9px] uppercase tracking-widest">Trades</p>
+                            <p class="text-sm font-bold mono text-slate-300">3,295</p>
+                        </div>
+                        <div class="bg-[#060D1A] p-3 rounded-lg border border-slate-800/50 text-center">
+                            <p class="text-slate-600 text-[9px] uppercase tracking-widest">Recovery</p>
+                            <p class="text-sm font-bold mono text-slate-300">2.86</p>
+                        </div>
+                        <div class="bg-[#060D1A] p-3 rounded-lg border border-slate-800/50 text-center">
+                            <p class="text-slate-600 text-[9px] uppercase tracking-widest">Sharpe</p>
+                            <p class="text-sm font-bold mono text-slate-300">0.68</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- QuantumGrid -->
                 <div class="card-gradient rounded-3xl p-8 border-t-4 border-t-emerald hover:shadow-[0_0_30px_rgba(0,245,155,0.15)] transition-all flex flex-col">
                     <h3 class="text-3xl font-black italic tracking-tighter mb-2 uppercase">QUANTUM<span class="text-emerald">GRID</span></h3>
                     <p class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-6">The Sniper • Prop Firm Ready</p>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6 h-24">
-                        <span class="lang-en">Surgical precision algorithm with institutional-grade risk control. Selective market entry combined with adaptive position scaling keeps drawdown at levels compatible with funded account challenges. The highest Profit Factor in our lineup.</span>
-                        <span class="lang-pt">Algoritmo de precisão cirúrgica com controle de risco de nível institucional. Entrada seletiva combinada com escalonamento adaptativo de posições mantém o drawdown em níveis compatíveis com desafios de contas financiadas. O maior Fator de Lucro do nosso portfólio.</span>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 min-h-[96px]">
+                        <span class="lang-en">Surgical precision algorithm with institutional-grade risk control. Proprietary dual-confirmation entry system waits for multiple independent signals to converge before executing. Adaptive volatility-based position scaling keeps drawdown at levels compatible with funded account challenges.</span>
+                        <span class="lang-pt">Algoritmo de precisão cirúrgica com controle de risco de nível institucional. Sistema proprietário de entrada com dupla confirmação aguarda convergência de múltiplos sinais independentes antes de executar. Escalamento adaptativo baseado em volatilidade mantém o drawdown em níveis compatíveis com desafios de contas financiadas.</span>
                     </p>
                     
                     <a href="quantum_guide.html" target="_blank" class="text-emerald hover:text-white text-xs font-bold uppercase tracking-widest transition-colors mb-8 inline-block">
@@ -190,17 +221,44 @@
                             <p class="text-2xl font-bold mono text-white">64.8%</p>
                         </div>
                         <div class="bg-[#060D1A] p-4 rounded-xl border border-slate-800">
-                            <p class="text-slate-500 text-[10px] uppercase tracking-widest mb-1">Total Trades</p>
-                            <p class="text-2xl font-bold mono text-slate-300">17,622</p>
+                            <p class="text-slate-500 text-[10px] uppercase tracking-widest mb-1">Net Profit (7yr)</p>
+                            <p class="text-2xl font-bold mono text-emerald">$8,761</p>
+                        </div>
+                    </div>
+
+                    <!-- Expanded metrics -->
+                    <div class="grid grid-cols-3 gap-3 mt-4">
+                        <div class="bg-[#060D1A] p-3 rounded-lg border border-slate-800/50 text-center">
+                            <p class="text-slate-600 text-[9px] uppercase tracking-widest">Trades</p>
+                            <p class="text-sm font-bold mono text-slate-300">17,622</p>
+                        </div>
+                        <div class="bg-[#060D1A] p-3 rounded-lg border border-slate-800/50 text-center">
+                            <p class="text-slate-600 text-[9px] uppercase tracking-widest">Recovery</p>
+                            <p class="text-sm font-bold mono text-slate-300">4.88</p>
+                        </div>
+                        <div class="bg-[#060D1A] p-3 rounded-lg border border-slate-800/50 text-center">
+                            <p class="text-slate-600 text-[9px] uppercase tracking-widest">Sharpe</p>
+                            <p class="text-sm font-bold mono text-emerald">1.54</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <!-- Backtest validation badge -->
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-3 bg-[#060D1A] px-6 py-3 rounded-full border border-slate-800">
+                    <span class="text-emerald text-lg">✓</span>
+                    <span class="text-slate-400 text-xs font-bold uppercase tracking-widest">
+                        <span class="lang-en">EURUSD M1 • 2019–2026 • 100% Real Ticks • 164M+ Ticks Processed • No Curve-Fitting</span>
+                        <span class="lang-pt">EURUSD M1 • 2019–2026 • 100% Ticks Reais • 164M+ Ticks Processados • Sem Curve-Fitting</span>
+                    </span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="vendas" class="py-16 px-4 bg-slate-900/30 border-t border-slate-800">
+    <!-- ========== TECHNOLOGY ========== -->
+    <section id="technology" class="py-16 px-4 bg-slate-900/30 border-t border-slate-800">
         <div class="container mx-auto max-w-6xl text-center">
             <h2 class="text-3xl font-bold mb-12 uppercase italic">
                 <span class="lang-en">Quantitative Engineering <span class="text-emerald">Without Emotions</span></span>
@@ -211,103 +269,318 @@
                     <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
                         <span class="text-xl">⚙️</span> <span class="lang-en">Professional Automation</span><span class="lang-pt">Automação Profissional</span>
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-en">True "Set-and-Forget" logic. The algorithm tracks, enters, and exits trades without hesitation. Zero manual effort.</p>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Verdadeira lógica "Set-and-Forget". O algoritmo rastreia, entra e sai das operações sem hesitação ou ganância. Zero esforço manual necessário.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">True "Set-and-Forget" logic. The algorithm tracks, enters, and exits trades without hesitation. Zero manual effort required — install, configure, and let the system work 24/5.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Verdadeira lógica "Set-and-Forget". O algoritmo rastreia, entra e sai das operações sem hesitação ou ganância. Zero esforço manual — instale, configure e deixe o sistema trabalhar 24/5.</p>
                 </div>
                 <div class="card-gradient p-8 rounded-2xl border border-slate-800 hover:border-emerald/30 transition">
                     <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
-                        <span class="text-xl">🛡️</span> <span class="lang-en">Dynamic Capital Protection</span><span class="lang-pt">Proteção Dinâmica de Capital</span>
+                        <span class="text-xl">🛡️</span> <span class="lang-en">Multi-Layer Safety</span><span class="lang-pt">Segurança Multicamadas</span>
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Active volatility-based risk management that survived global crises with controlled Drawdown.</p>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Gestão de risco ativa baseada em volatilidade que superou Cisnes Negros e crises globais com Drawdown controlado.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Volatility-adaptive risk management, emergency drawdown protection, position rotation, and real-time account health monitoring. Multiple independent safety layers that survived the COVID crash and 2022 rate shock.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Gestão de risco adaptativa à volatilidade, proteção emergencial de drawdown, rotação de posições e monitoramento da saúde da conta em tempo real. Múltiplas camadas independentes que sobreviveram ao crash do COVID e ao choque de juros de 2022.</p>
                 </div>
                 <div class="card-gradient p-8 rounded-2xl border border-slate-800 hover:border-emerald/30 transition">
                     <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
-                        <span class="text-xl">⏳</span> <span class="lang-en">7-Year Crisis-Tested Validation</span><span class="lang-pt">Validação Testada em Crises</span>
+                        <span class="text-xl">⏳</span> <span class="lang-en">7-Year Crisis-Tested</span><span class="lang-pt">7 Anos Testado em Crises</span>
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Every algorithm must survive history before earning your trust. Both engines were validated across 7 years of real-tick data encompassing the COVID crash, rate hikes, geopolitical shocks, and every market regime in between. No curve-fitting. No demo-only results.</p>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Todo algoritmo precisa sobreviver à história antes de ganhar sua confiança. Ambos os motores foram validados em 7 anos de dados real-tick que incluem o crash do COVID, alta de juros, choques geopolíticos e todos os regimes de mercado entre eles. Sem curve-fitting. Sem resultados apenas em demo.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Every algorithm must survive history before earning your trust. Both engines were validated across 7 years of real-tick data (164M+ ticks) encompassing every market regime. No curve-fitting. No demo-only results. Correlation R² = 0.99.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Todo algoritmo precisa sobreviver à história antes de ganhar sua confiança. Ambos os motores foram validados em 7 anos de dados real-tick (164M+ ticks) cobrindo todos os regimes de mercado. Sem curve-fitting. Sem resultados apenas em demo. Correlação R² = 0.99.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========== PRICING / CHECKOUT ========== -->
     <section id="checkout" class="py-20 px-4 border-t border-slate-800 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#132342] to-[#0B162C]">
         <div class="container mx-auto max-w-6xl">
-            <h2 class="text-4xl font-bold mb-16 text-center uppercase tracking-tighter italic text-white">
+            <h2 class="text-4xl font-bold mb-4 text-center uppercase tracking-tighter italic text-white">
                 <span class="lang-en">Acquire Your License</span><span class="lang-pt">Adquira Sua Licença</span>
             </h2>
+            <p class="text-slate-500 text-sm text-center mb-16 uppercase tracking-widest font-bold">
+                <span class="lang-en">Early Adopter Pricing • Limited Spots</span>
+                <span class="lang-pt">Preço de Lançamento • Vagas Limitadas</span>
+            </p>
             
-            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <!-- SentinelFX Pricing Row -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-black italic uppercase mb-2 text-center">SENTINEL<span class="text-emerald">FX</span></h3>
+                <p class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-8 text-center">The Workhorse • Aggressive Growth</p>
                 
-                <div class="card-gradient p-10 rounded-[30px] border border-slate-700 hover:border-emerald/50 transition-all flex flex-col">
-                    <h3 class="text-2xl font-black italic uppercase mb-2">SENTINEL<span class="text-emerald">FX</span></h3>
-                    <p class="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-8">Standard Edition</p>
-                    
-                    <div class="mb-4">
-                        <span class="text-6xl font-black mono leading-none tracking-tighter">$149<span class="text-xl text-slate-500 font-bold ml-1 italic">USD</span></span>
+                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <!-- Direct Purchase -->
+                    <div class="card-gradient p-8 rounded-2xl border-2 border-emerald/50 relative hover:border-emerald transition-all">
+                        <div class="pricing-badge bg-emerald text-black">
+                            <span class="lang-en">50% OFF</span><span class="lang-pt">50% OFF</span>
+                        </div>
+                        <p class="text-emerald text-[10px] font-bold uppercase tracking-widest mb-4">
+                            <span class="lang-en">Direct Purchase</span><span class="lang-pt">Compra Direta</span>
+                        </p>
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="text-xl text-slate-600 price-old mono font-bold">$299</span>
+                            <span class="text-5xl font-black mono">$149</span>
+                            <span class="text-sm text-slate-500 italic">USD</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-6">
+                            <span class="lang-en">Lifetime License • Any Broker</span><span class="lang-pt">Licença Vitalícia • Qualquer Corretora</span>
+                        </p>
+                        <div class="space-y-2 mb-8 text-slate-300 text-sm">
+                            <p>✅ <span class="lang-en">Lifetime License (MT5)</span><span class="lang-pt">Licença Vitalícia (MT5)</span></p>
+                            <p>✅ <span class="lang-en">Any broker supported</span><span class="lang-pt">Qualquer corretora</span></p>
+                            <p>✅ <span class="lang-en">Free updates & support</span><span class="lang-pt">Atualizações e suporte grátis</span></p>
+                            <p>✅ <span class="lang-en">Premium dashboard</span><span class="lang-pt">Dashboard premium</span></p>
+                        </div>
+                        <a href="https://buy.stripe.com/4gM3co1g19xM6QB9Js1B600" target="_blank" class="block w-full bg-emerald text-black py-3 rounded-xl font-bold uppercase tracking-widest text-center text-sm hover:bg-emerald/90 transition mb-2">
+                            <span class="lang-en">Buy via Stripe</span><span class="lang-pt">Comprar no Cartão</span>
+                        </a>
+                        <a href="https://t.me/sentinellabs_bot" target="_blank" class="block w-full bg-transparent border border-slate-700 text-slate-400 py-2.5 rounded-xl font-bold uppercase tracking-widest text-center text-[11px] hover:border-slate-500 hover:text-white transition">
+                            <span class="lang-en">Pay via USDT</span><span class="lang-pt">Pagar com USDT</span>
+                        </a>
                     </div>
-                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-2 mb-8 opacity-80">
-                        <span class="lang-en">One license = One trading account.<br>Lifetime updates included.</span>
-                        <span class="lang-pt">Uma licença = Uma conta de trading.<br>Atualizações vitalícias inclusas.</span>
-                    </p>
 
-                    <div class="space-y-3 mb-10 text-slate-300 text-sm font-medium flex-grow">
-                        <p>✅ <span class="lang-en">Lifetime License (MT5)</span><span class="lang-pt">Licença Vitalícia (MT5)</span></p>
-                        <p>✅ <span class="lang-en">Personal Accounts Focus</span><span class="lang-pt">Foco em Contas Pessoais</span></p>
-                        <p>✅ <span class="lang-en">Free Updates & Support</span><span class="lang-pt">Atualizações e Suporte</span></p>
+                    <!-- IB Free -->
+                    <div class="card-gradient p-8 rounded-2xl border border-slate-700 relative hover:border-emerald/30 transition-all">
+                        <div class="pricing-badge bg-yellow-500 text-black">FREE</div>
+                        <p class="text-yellow-400 text-[10px] font-bold uppercase tracking-widest mb-4">
+                            <span class="lang-en">IB Partner (Exness)</span><span class="lang-pt">Parceiro IB (Exness)</span>
+                        </p>
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="text-5xl font-black mono text-yellow-400">FREE</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-6">
+                            <span class="lang-en">You trade, we earn rebate</span><span class="lang-pt">Você opera, nós ganhamos rebate</span>
+                        </p>
+                        <div class="space-y-2 mb-8 text-slate-300 text-sm">
+                            <p>✅ <span class="lang-en">Full EA, no restrictions</span><span class="lang-pt">EA completo, sem restrições</span></p>
+                            <p>✅ <span class="lang-en">Exness broker only</span><span class="lang-pt">Apenas corretora Exness</span></p>
+                            <p>✅ <span class="lang-en">Free updates & support</span><span class="lang-pt">Atualizações e suporte grátis</span></p>
+                            <p>✅ <span class="lang-en">Premium dashboard</span><span class="lang-pt">Dashboard premium</span></p>
+                        </div>
+                        <a href="#ib-program" class="block w-full bg-yellow-500 text-black py-3 rounded-xl font-bold uppercase tracking-widest text-center text-sm hover:bg-yellow-400 transition">
+                            <span class="lang-en">How It Works ↓</span><span class="lang-pt">Como Funciona ↓</span>
+                        </a>
                     </div>
-
-                    <a href="https://buy.stripe.com/4gM3co1g19xM6QB9Js1B600" target="_blank" class="w-full bg-emerald text-black hover:bg-emerald/90 py-3 rounded-xl font-bold uppercase tracking-widest text-center transition mb-3">
-                        <span class="lang-en">Buy via Stripe</span><span class="lang-pt">Comprar no Cartão</span>
-                    </a>
-                    <a href="https://t.me/SEU_USER" target="_blank" class="w-full bg-transparent border border-emerald text-emerald hover:bg-emerald/10 py-3 rounded-xl font-bold uppercase tracking-widest text-center transition mb-3">
-                        <span class="lang-en">Get Free via Broker</span><span class="lang-pt">Grátis via Corretora</span>
-                    </a>
-                    <a href="https://t.me/SEU_USER" target="_blank" class="w-full bg-transparent border border-slate-700 hover:border-slate-500 text-slate-300 py-3 rounded-xl font-bold uppercase tracking-widest text-center transition">
-                        <span class="lang-en">Pay via USDT (Crypto)</span><span class="lang-pt">Pagar com USDT (Cripto)</span>
-                    </a>
                 </div>
+            </div>
 
-                <div class="card-gradient p-10 rounded-[30px] border-2 border-emerald shadow-[0_0_30px_rgba(0,245,155,0.15)] flex flex-col relative">
-                    <div class="absolute top-0 right-8 bg-emerald text-black text-[10px] font-bold px-4 py-1.5 uppercase tracking-widest rounded-b-lg">Premium</div>
-                    
-                    <h3 class="text-2xl font-black italic uppercase mb-2">QUANTUM<span class="text-emerald">GRID</span></h3>
-                    <p class="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-8">Prop Firm Edition</p>
-                    
-                    <div class="mb-4">
-                        <span class="text-6xl font-black mono leading-none tracking-tighter">$199<span class="text-xl text-slate-500 font-bold ml-1 italic">USD</span></span>
+            <!-- QuantumGrid Pricing Row -->
+            <div>
+                <h3 class="text-2xl font-black italic uppercase mb-2 text-center">QUANTUM<span class="text-emerald">GRID</span></h3>
+                <p class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-8 text-center">The Sniper • Prop Firm Ready</p>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <!-- Direct Purchase -->
+                    <div class="card-gradient p-8 rounded-2xl border-2 border-emerald/50 relative hover:border-emerald transition-all">
+                        <div class="pricing-badge bg-emerald text-black">
+                            <span class="lang-en">50% OFF</span><span class="lang-pt">50% OFF</span>
+                        </div>
+                        <p class="text-emerald text-[10px] font-bold uppercase tracking-widest mb-4">
+                            <span class="lang-en">Direct Purchase</span><span class="lang-pt">Compra Direta</span>
+                        </p>
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="text-xl text-slate-600 price-old mono font-bold">$399</span>
+                            <span class="text-5xl font-black mono">$199</span>
+                            <span class="text-sm text-slate-500 italic">USD</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-6">
+                            <span class="lang-en">Lifetime License • Any Broker</span><span class="lang-pt">Licença Vitalícia • Qualquer Corretora</span>
+                        </p>
+                        <div class="space-y-2 mb-8 text-slate-300 text-sm">
+                            <p>✅ <span class="lang-en">Lifetime License (MT5)</span><span class="lang-pt">Licença Vitalícia (MT5)</span></p>
+                            <p>✅ <span class="lang-en">Any broker supported</span><span class="lang-pt">Qualquer corretora</span></p>
+                            <p>✅ <span class="lang-en">Prop firm optimized setup</span><span class="lang-pt">Setup otimizado para prop firms</span></p>
+                            <p>✅ <span class="lang-en">Premium dashboard</span><span class="lang-pt">Dashboard premium</span></p>
+                        </div>
+                        <a href="https://buy.stripe.com/eVq00cgaV5hwcaV9Js1B601" target="_blank" class="block w-full bg-emerald text-black py-3 rounded-xl font-bold uppercase tracking-widest text-center text-sm hover:bg-emerald/90 transition mb-2">
+                            <span class="lang-en">Buy via Stripe</span><span class="lang-pt">Comprar no Cartão</span>
+                        </a>
+                        <a href="https://t.me/sentinellabs_bot" target="_blank" class="block w-full bg-transparent border border-slate-700 text-slate-400 py-2.5 rounded-xl font-bold uppercase tracking-widest text-center text-[11px] hover:border-slate-500 hover:text-white transition">
+                            <span class="lang-en">Pay via USDT</span><span class="lang-pt">Pagar com USDT</span>
+                        </a>
                     </div>
-                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-2 mb-8 opacity-80">
-                        <span class="lang-en">One license = One trading account.<br>Lifetime updates included.</span>
-                        <span class="lang-pt">Uma licença = Uma conta de trading.<br>Atualizações vitalícias inclusas.</span>
-                    </p>
 
-                    <div class="space-y-3 mb-10 text-slate-300 text-sm font-medium flex-grow">
-                        <p>✅ <span class="lang-en">Lifetime License (MT5)</span><span class="lang-pt">Licença Vitalícia (MT5)</span></p>
-                        <p>✅ <span class="lang-en">Prop Firm / Funded Rules Ready</span><span class="lang-pt">Otimizado para Mesas Proprietárias</span></p>
-                        <p>✅ <span class="lang-en">Ultra-Low Drawdown Setup</span><span class="lang-pt">Setup de Drawdown Ultrabaixo</span></p>
+                    <!-- IB Free -->
+                    <div class="card-gradient p-8 rounded-2xl border border-slate-700 relative hover:border-emerald/30 transition-all">
+                        <div class="pricing-badge bg-yellow-500 text-black">FREE</div>
+                        <p class="text-yellow-400 text-[10px] font-bold uppercase tracking-widest mb-4">
+                            <span class="lang-en">IB Partner (Exness)</span><span class="lang-pt">Parceiro IB (Exness)</span>
+                        </p>
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="text-5xl font-black mono text-yellow-400">FREE</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-6">
+                            <span class="lang-en">You trade, we earn rebate</span><span class="lang-pt">Você opera, nós ganhamos rebate</span>
+                        </p>
+                        <div class="space-y-2 mb-8 text-slate-300 text-sm">
+                            <p>✅ <span class="lang-en">Full EA, no restrictions</span><span class="lang-pt">EA completo, sem restrições</span></p>
+                            <p>✅ <span class="lang-en">Exness broker only</span><span class="lang-pt">Apenas corretora Exness</span></p>
+                            <p>✅ <span class="lang-en">Free updates & support</span><span class="lang-pt">Atualizações e suporte grátis</span></p>
+                            <p>✅ <span class="lang-en">Premium dashboard</span><span class="lang-pt">Dashboard premium</span></p>
+                        </div>
+                        <a href="#ib-program" class="block w-full bg-yellow-500 text-black py-3 rounded-xl font-bold uppercase tracking-widest text-center text-sm hover:bg-yellow-400 transition">
+                            <span class="lang-en">How It Works ↓</span><span class="lang-pt">Como Funciona ↓</span>
+                        </a>
                     </div>
-
-                    <a href="https://buy.stripe.com/eVq00cgaV5hwcaV9Js1B601" target="_blank" class="w-full bg-emerald text-black hover:bg-emerald/90 py-3 rounded-xl font-bold uppercase tracking-widest text-center transition mb-3 shadow-[0_0_15px_rgba(0,245,155,0.4)]">
-                        <span class="lang-en">Buy via Stripe</span><span class="lang-pt">Comprar no Cartão</span>
-                    </a>
-                    <a href="https://t.me/SEU_USER" target="_blank" class="w-full bg-transparent border border-emerald text-emerald hover:bg-emerald/10 py-3 rounded-xl font-bold uppercase tracking-widest text-center transition mb-3">
-                        <span class="lang-en">Get Free via Broker</span><span class="lang-pt">Grátis via Corretora</span>
-                    </a>
-                    <a href="https://t.me/SEU_USER" target="_blank" class="w-full bg-transparent border border-slate-700 hover:border-slate-500 text-slate-300 py-3 rounded-xl font-bold uppercase tracking-widest text-center transition">
-                        <span class="lang-en">Pay via USDT (Crypto)</span><span class="lang-pt">Pagar com USDT (Cripto)</span>
-                    </a>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- ========== IB PROGRAM — HOW IT WORKS ========== -->
+    <section id="ib-program" class="py-20 px-4 border-t border-slate-800 bg-[#0B162C]">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 uppercase italic">
+                <span class="lang-en">Get Your EA <span class="text-yellow-400">For Free</span></span>
+                <span class="lang-pt">Receba seu EA <span class="text-yellow-400">Gratuitamente</span></span>
+            </h2>
+            <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
+                <span class="lang-en">Open an Exness account through our partner link, deposit your capital, and receive a fully licensed EA at no cost. You trade with a world-class broker — we earn a small commission from Exness on your volume. You pay nothing extra.</span>
+                <span class="lang-pt">Abra uma conta na Exness pelo nosso link de parceiro, deposite seu capital e receba o EA completo sem custo. Você opera com uma corretora de classe mundial — nós ganhamos uma pequena comissão da Exness sobre o seu volume. Você não paga nada a mais.</span>
+            </p>
+
+            <div class="space-y-8 max-w-3xl mx-auto">
+                <!-- Step 1 -->
+                <div class="flex gap-6 items-start">
+                    <div class="step-number bg-emerald text-black">1</div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-2">
+                            <span class="lang-en">Contact our Telegram Bot</span><span class="lang-pt">Fale com nosso Bot no Telegram</span>
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">Open <a href="https://t.me/sentinellabs_bot" target="_blank" class="text-emerald hover:underline font-bold">@sentinellabs_bot</a> on Telegram. Tell us which EA you want (SentinelFX, QuantumGrid, or both). We'll send you the Exness partner registration link.</span>
+                            <span class="lang-pt">Abra o <a href="https://t.me/sentinellabs_bot" target="_blank" class="text-emerald hover:underline font-bold">@sentinellabs_bot</a> no Telegram. Diga qual EA deseja (SentinelFX, QuantumGrid ou ambos). Enviaremos o link de registro na Exness.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6 items-start">
+                    <div class="step-number bg-emerald/20 text-emerald border-2 border-emerald/50">2</div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-2">
+                            <span class="lang-en">Open & Fund your Exness Account</span><span class="lang-pt">Abra e Deposite na sua Conta Exness</span>
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">Register on Exness using our link. Open a <strong>Standard Cent</strong> or <strong>Standard</strong> account (Hedging mode). Deposit your trading capital. Send us your MT5 account number via the Telegram bot.</span>
+                            <span class="lang-pt">Registre-se na Exness usando nosso link. Abra uma conta <strong>Standard Cent</strong> ou <strong>Standard</strong> (modo Hedging). Deposite seu capital. Envie seu número de conta MT5 pelo bot do Telegram.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6 items-start">
+                    <div class="step-number bg-emerald/20 text-emerald border-2 border-emerald/50">3</div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-2">
+                            <span class="lang-en">Receive Your Licensed EA</span><span class="lang-pt">Receba seu EA Licenciado</span>
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">Once we confirm your account is linked, we compile your personal <code style="background:#060D1A;padding:2px 6px;border-radius:4px;color:#00F59B;font-family:'JetBrains Mono';font-size:0.85em;">.ex5</code> file locked to your account number. Install it, load the optimized settings, and start trading.</span>
+                            <span class="lang-pt">Assim que confirmarmos que sua conta está vinculada, compilamos seu arquivo <code style="background:#060D1A;padding:2px 6px;border-radius:4px;color:#00F59B;font-family:'JetBrains Mono';font-size:0.85em;">.ex5</code> pessoal travado na sua conta. Instale, carregue as configurações otimizadas e comece a operar.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://t.me/sentinellabs_bot" target="_blank" class="inline-flex items-center gap-3 bg-yellow-500 text-black px-10 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transition shadow-lg shadow-yellow-500/20">
+                    <span class="lang-en">Start on Telegram →</span><span class="lang-pt">Iniciar no Telegram →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section id="faq" class="py-20 px-4 border-t border-slate-800 bg-slate-900/30">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl font-bold text-center mb-12 uppercase italic">
+                <span class="lang-en">Frequently Asked <span class="text-emerald">Questions</span></span>
+                <span class="lang-pt">Perguntas <span class="text-emerald">Frequentes</span></span>
+            </h2>
+
+            <div class="space-y-4">
+                <details class="card-gradient rounded-2xl border border-slate-800 overflow-hidden">
+                    <summary class="p-6 flex justify-between items-center font-bold text-white hover:text-emerald transition cursor-pointer">
+                        <span class="lang-en">What broker do I need?</span><span class="lang-pt">Qual corretora eu preciso?</span>
+                        <span class="faq-arrow text-slate-500 text-xl">▼</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                        <span class="lang-en">For <strong>Direct Purchase</strong>, any MetaTrader 5 broker with a Hedging account works. For <strong>IB/Free Access</strong>, you need an Exness account opened through our partner link. We recommend Exness Standard Cent accounts for initial testing and Standard accounts for larger capital.</span>
+                        <span class="lang-pt">Para <strong>Compra Direta</strong>, qualquer corretora MetaTrader 5 com conta Hedging funciona. Para <strong>Acesso Grátis via IB</strong>, você precisa de uma conta Exness aberta pelo nosso link de parceiro. Recomendamos contas Standard Cent para testes iniciais e Standard para capital maior.</span>
+                    </div>
+                </details>
+
+                <details class="card-gradient rounded-2xl border border-slate-800 overflow-hidden">
+                    <summary class="p-6 flex justify-between items-center font-bold text-white hover:text-emerald transition cursor-pointer">
+                        <span class="lang-en">Can I use both EAs on the same account?</span><span class="lang-pt">Posso usar os dois EAs na mesma conta?</span>
+                        <span class="faq-arrow text-slate-500 text-xl">▼</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                        <span class="lang-en">Yes. Each EA uses a unique Magic Number so they operate independently on the same account without conflict. However, we recommend separate accounts for cleaner performance tracking.</span>
+                        <span class="lang-pt">Sim. Cada EA usa um Magic Number exclusivo então operam independentemente na mesma conta sem conflito. Porém, recomendamos contas separadas para um acompanhamento de performance mais limpo.</span>
+                    </div>
+                </details>
+
+                <details class="card-gradient rounded-2xl border border-slate-800 overflow-hidden">
+                    <summary class="p-6 flex justify-between items-center font-bold text-white hover:text-emerald transition cursor-pointer">
+                        <span class="lang-en">What is the minimum deposit?</span><span class="lang-pt">Qual o depósito mínimo?</span>
+                        <span class="faq-arrow text-slate-500 text-xl">▼</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                        <span class="lang-en">For Cent accounts, as low as $10 USD is technically possible. We recommend $100+ on Cent accounts or $1,000+ on Standard accounts for optimal performance matching the backtest conditions (1:100 leverage, 0.01 starting lot).</span>
+                        <span class="lang-pt">Para contas Cent, tecnicamente é possível a partir de $10 USD. Recomendamos $100+ em contas Cent ou $1.000+ em contas Standard para performance ideal compatível com as condições do backtest (alavancagem 1:100, lote inicial 0.01).</span>
+                    </div>
+                </details>
+
+                <details class="card-gradient rounded-2xl border border-slate-800 overflow-hidden">
+                    <summary class="p-6 flex justify-between items-center font-bold text-white hover:text-emerald transition cursor-pointer">
+                        <span class="lang-en">How does the IB (free) model work? Is there a catch?</span><span class="lang-pt">Como funciona o modelo IB (grátis)? Tem algum truque?</span>
+                        <span class="faq-arrow text-slate-500 text-xl">▼</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                        <span class="lang-en">No catch. When you open an Exness account through our link, Exness pays us a small rebate commission on your trading volume. Your spreads, execution, and conditions are exactly the same as any other Exness client. You receive the full EA with no restrictions, no time limits, and lifetime updates.</span>
+                        <span class="lang-pt">Sem truque. Quando você abre uma conta na Exness pelo nosso link, a Exness nos paga uma pequena comissão de rebate sobre o seu volume de operações. Seus spreads, execução e condições são exatamente iguais aos de qualquer outro cliente Exness. Você recebe o EA completo sem restrições, sem prazo e com atualizações vitalícias.</span>
+                    </div>
+                </details>
+
+                <details class="card-gradient rounded-2xl border border-slate-800 overflow-hidden">
+                    <summary class="p-6 flex justify-between items-center font-bold text-white hover:text-emerald transition cursor-pointer">
+                        <span class="lang-en">Can I transfer my license to another account?</span><span class="lang-pt">Posso transferir minha licença para outra conta?</span>
+                        <span class="faq-arrow text-slate-500 text-xl">▼</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                        <span class="lang-en">Yes. Contact us via Telegram and we'll recompile your EA for the new account number at no charge. One active license per account at a time.</span>
+                        <span class="lang-pt">Sim. Nos contate pelo Telegram e recompilaremos seu EA para o novo número de conta sem custo. Uma licença ativa por conta por vez.</span>
+                    </div>
+                </details>
+
+                <details class="card-gradient rounded-2xl border border-slate-800 overflow-hidden">
+                    <summary class="p-6 flex justify-between items-center font-bold text-white hover:text-emerald transition cursor-pointer">
+                        <span class="lang-en">What timeframe and pair should I use?</span><span class="lang-pt">Qual timeframe e par devo usar?</span>
+                        <span class="faq-arrow text-slate-500 text-xl">▼</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed">
+                        <span class="lang-en">Both EAs are optimized and validated for <strong>EURUSD M1</strong>. The optimized <code style="background:#060D1A;padding:2px 6px;border-radius:4px;color:#00F59B;font-family:'JetBrains Mono';font-size:0.85em;">.set</code> file is included with your license. Running on other pairs is possible but requires separate optimization and is not covered by our validated results.</span>
+                        <span class="lang-pt">Ambos os EAs são otimizados e validados para <strong>EURUSD M1</strong>. O arquivo <code style="background:#060D1A;padding:2px 6px;border-radius:4px;color:#00F59B;font-family:'JetBrains Mono';font-size:0.85em;">.set</code> otimizado está incluso na sua licença. Usar em outros pares é possível mas requer otimização separada e não é coberto pelos nossos resultados validados.</span>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
     <footer class="py-16 px-5 border-t border-slate-900 bg-[#060D1A] text-center">
         <div class="container mx-auto max-w-5xl">
             <div class="w-12 h-12 bg-emerald rounded-xl flex items-center justify-center font-bold text-black text-xl mx-auto mb-8 shadow-[0_0_15px_rgba(0,245,155,0.3)]">S</div>
             <p class="text-2xl font-bold text-slate-300 uppercase tracking-[0.5em] mb-4">Sentinel Quant Labs</p>
+            
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://t.me/sentinellabs_bot" target="_blank" class="text-slate-500 hover:text-emerald transition text-sm font-bold uppercase tracking-widest">Telegram</a>
+                <a href="#engines" class="text-slate-500 hover:text-emerald transition text-sm font-bold uppercase tracking-widest">
+                    <span class="lang-en">Algorithms</span><span class="lang-pt">Algoritmos</span>
+                </a>
+                <a href="#faq" class="text-slate-500 hover:text-emerald transition text-sm font-bold uppercase tracking-widest">FAQ</a>
+            </div>
+
             <p class="text-[11px] leading-relaxed max-w-3xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-40 mb-6">
                 <span class="lang-en">© 2026 Sentinel Quant Labs. Global financial markets involve risk of loss. Past results are not guarantees.</span>
                 <span class="lang-pt">© 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos. Resultados passados não são garantias.</span>
