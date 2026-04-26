@@ -192,14 +192,14 @@
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
-                        <h3 class="text-white font-bold mono text-lg mb-2">Spacing Sensitivity</h3>
+                        <h3 class="text-white font-bold mono text-lg mb-2">ATR Multiplier (grid spacing factor)</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en">Multiplies the current market volatility reading to set the minimum distance to the next grid level. Higher values = wider spacing = safer but slower recovery.</span>
                             <span class="lang-pt">Multiplica a leitura atual de volatilidade do mercado para definir a distância mínima do próximo nível de grid. Valores maiores = espaçamento maior = mais seguro mas recuperação mais lenta.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
-                        <h3 class="text-white font-bold mono text-lg mb-2">Recovery Intensity</h3>
+                        <h3 class="text-white font-bold mono text-lg mb-2">Lot Multiplier (martingale factor)</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en">The factor by which volume increases on each subsequent level (e.g., 1.5x) to pull the breakeven price closer to current market price.</span>
                             <span class="lang-pt">O fator pelo qual o volume aumenta em cada nível subsequente (ex: 1.5x) para puxar o preço de breakeven mais perto do preço atual do mercado.</span>
@@ -218,7 +218,7 @@
                 <div class="space-y-6">
                     <div class="card-gradient p-8 rounded-2xl border border-red-500/30 relative">
                         <div class="absolute top-0 right-8 bg-red-500 text-white text-[10px] font-bold px-4 py-1.5 uppercase tracking-[0.2em] rounded-b-lg">Critical Risk Control</div>
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">Max Risk Threshold <span class="text-slate-500 text-sm">(Default: 15%)</span></h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">Max Drawdown lock (%) <span class="text-slate-500 text-sm">(Default: 15%)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en"><strong>The Account Guardian.</strong> This is the paramount setting for funded challenges. If your total floating loss ever touches this exact percentage of your account balance, QuantumGrid engages an emergency shutdown, liquidating all open positions immediately. This guarantees you will never breach a Prop Firm's daily or total loss limits.</span>
                             <span class="lang-pt"><strong>O Guardião da Conta.</strong> Esta é a configuração suprema para desafios financiados. Se a sua perda flutuante total tocar essa porcentagem exata, o QuantumGrid ativa o desligamento de emergência, liquidando todas as posições abertas imediatamente. Isso garante que você nunca viole as regras de perda máxima da Mesa.</span>
@@ -226,7 +226,7 @@
                     </div>
 
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">Basket Profit Target</h3>
+                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">Basket Take Profit ($)</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en">Closes the entire active cycle as soon as the combined profit of all grid positions reaches a fixed monetary target in your account currency (e.g., $1.00). Highly predictable and efficient for securing daily challenge goals.</span>
                             <span class="lang-pt">Fecha o ciclo ativo inteiro assim que o lucro combinado de todas as posições do grid atingir um alvo monetário fixo na moeda da conta (ex: $1.00). Altamente previsível e eficiente para garantir a meta diária do desafio.</span>
@@ -234,7 +234,7 @@
                     </div>
 
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">Max Grid Levels <span class="text-slate-500 text-sm">(Default: 6)</span></h3>
+                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">Max basket positions <span class="text-slate-500 text-sm">(Default: 6)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en">Hard cap on the maximum number of grid positions per cycle. Combined with the adaptive spacing and lot scaling, this ensures the worst-case exposure is always bounded and predictable — essential for funded account rules.</span>
                             <span class="lang-pt">Limite rígido do número máximo de posições do grid por ciclo. Combinado com o espaçamento adaptativo e escalonamento de lote, garante que a exposição no pior cenário é sempre limitada e previsível — essencial para regras de contas financiadas.</span>
