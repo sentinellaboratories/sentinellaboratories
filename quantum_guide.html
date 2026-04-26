@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Grid | Official User Guide</title>
+    <title>QuantumGrid Pro | Official User Guide</title>
+    <meta name="description" content="Complete installation guide and technical documentation for QuantumGrid Pro — the prop firm ready precision algorithm for MetaTrader 5.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -13,18 +14,13 @@
         .mono { font-family: 'JetBrains Mono', monospace; }
         .card-gradient { background: linear-gradient(145deg, #132342, #0B162C); border: 1px solid #8E9AAF33; }
         .emerald-glow { box-shadow: 0 0 15px rgba(0, 245, 155, 0.3); }
-        
         .logo-s {
             width: 40px; height: 40px; background-color: #00F59B; border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
             font-weight: 900; color: #0B162C; font-size: 1.5rem;
             box-shadow: 0 0 15px rgba(0, 245, 155, 0.4);
         }
-
-        /* Lógica de Troca de Idioma */
         .lang-pt { display: none; }
-
-        /* Estilização de código inline */
         code { background-color: #060D1A; padding: 2px 6px; border-radius: 4px; color: #00F59B; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border: 1px solid rgba(0,245,155,0.2); }
     </style>
 </head>
@@ -33,12 +29,15 @@
     <header class="py-6 px-4 border-b border-slate-800 sticky top-0 bg-[#0B162C]/95 backdrop-blur-md z-50">
         <div class="container mx-auto flex justify-between items-center text-white max-w-6xl">
             <div class="flex items-center gap-3">
-                <div class="logo-s text-black font-bold">S</div>
-                <div class="flex flex-col md:flex-row md:items-baseline">
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+                    <div class="logo-s text-black font-bold">S</div>
                     <span class="text-2xl font-black tracking-tighter uppercase italic">QUANTUM<span class="text-emerald font-black">GRID</span></span>
-                </div>
+                </a>
             </div>
             <div class="flex items-center gap-6">
+                <a href="index.html" class="hidden md:block text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-emerald transition mr-4">
+                    ← <span class="lang-en">Back to Home</span><span class="lang-pt">Voltar ao Início</span>
+                </a>
                 <span class="hidden md:block text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mr-4">
                     <span class="lang-en">Official Documentation</span><span class="lang-pt">Documentação Oficial</span>
                 </span>
@@ -55,10 +54,17 @@
             <h1 class="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter text-white">
                 <span class="lang-en">Mastering</span><span class="lang-pt">Dominando o</span> QUANTUM<span class="text-emerald italic">GRID</span>
             </h1>
-            <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto font-light leading-relaxed">
-                <span class="lang-en">Complete technical guide for the Prop Firm-ready algorithm. Learn how to configure Sniper entries, Dynamic ATR scaling, and strict Drawdown failsafes.</span>
-                <span class="lang-pt">Guia técnico completo do algoritmo focado em Mesas Proprietárias. Aprenda a configurar Entradas Sniper, Escalamento Dinâmico via ATR e travas rigorosas de Drawdown.</span>
+            <p class="text-slate-400 text-lg mb-4 max-w-2xl mx-auto font-light leading-relaxed">
+                <span class="lang-en">Complete technical guide for the Prop Firm-ready algorithm. Learn how to configure precision entries, adaptive scaling, and strict drawdown failsafes.</span>
+                <span class="lang-pt">Guia técnico completo do algoritmo focado em Mesas Proprietárias. Aprenda a configurar entradas de precisão, escalamento adaptativo e travas rigorosas de drawdown.</span>
             </p>
+            <div class="inline-flex items-center gap-3 bg-[#060D1A] px-4 py-2 rounded-full border border-slate-800 mt-4">
+                <span class="text-emerald text-sm">✓</span>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">
+                    <span class="lang-en">7-Year Validated • PF 2.37 • 17,622 Trades • $8,761 Net Profit</span>
+                    <span class="lang-pt">7 Anos Validado • PF 2.37 • 17.622 Trades • $8.761 Lucro Líquido</span>
+                </span>
+            </div>
         </div>
     </section>
 
@@ -66,10 +72,12 @@
         
         <aside class="hidden lg:block lg:col-span-1">
             <div class="sticky top-32 space-y-2 font-bold text-sm uppercase tracking-widest text-slate-500">
-                <p class="text-emerald mb-4">ÍNDICE</p>
+                <p class="text-emerald mb-4">
+                    <span class="lang-en">Contents</span><span class="lang-pt">Índice</span>
+                </p>
                 <a href="#installation" class="block py-2 hover:text-white transition"><span class="lang-en">1. Installation</span><span class="lang-pt">1. Instalação</span></a>
                 <a href="#dashboard" class="block py-2 hover:text-white transition"><span class="lang-en">2. Precision HUD</span><span class="lang-pt">2. Painel de Precisão</span></a>
-                <a href="#indicators" class="block py-2 hover:text-white transition"><span class="lang-en">3. Sniper Entries</span><span class="lang-pt">3. Entradas Sniper</span></a>
+                <a href="#indicators" class="block py-2 hover:text-white transition"><span class="lang-en">3. Entry Logic</span><span class="lang-pt">3. Lógica de Entrada</span></a>
                 <a href="#dynamic" class="block py-2 hover:text-white transition"><span class="lang-en">4. Adaptive Scaling</span><span class="lang-pt">4. Escalamento Adaptativo</span></a>
                 <a href="#protection" class="block py-2 hover:text-white transition"><span class="lang-en">5. Prop Firm Failsafe</span><span class="lang-pt">5. Travas de Segurança</span></a>
             </div>
@@ -77,6 +85,7 @@
 
         <main class="lg:col-span-3 space-y-16">
 
+            <!-- 1. INSTALLATION -->
             <section id="installation" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">1</div>
@@ -96,22 +105,27 @@
                             <span class="font-black text-emerald mono">02</span>
                             <div>
                                 <strong class="text-white block mb-1"><span class="lang-en">Install the Algorithm</span><span class="lang-pt">Instale o Algoritmo</span></strong>
-                                <span class="lang-en">Navigate to <code>MQL5</code> > <code>Experts</code>. Paste the <code>QuantumGrid.ex5</code> file here.</span>
-                                <span class="lang-pt">Navegue até <code>MQL5</code> > <code>Experts</code>. Cole o arquivo <code>QuantumGrid.ex5</code> nesta pasta.</span>
+                                <span class="lang-en">Navigate to <code>MQL5</code> > <code>Experts</code>. Paste the <code>QuantumGridPro.ex5</code> file here.</span>
+                                <span class="lang-pt">Navegue até <code>MQL5</code> > <code>Experts</code>. Cole o arquivo <code>QuantumGridPro.ex5</code> nesta pasta.</span>
                             </div>
                         </li>
                         <li class="flex gap-4">
                             <span class="font-black text-emerald mono">03</span>
                             <div>
-                                <strong class="text-white block mb-1"><span class="lang-en">Enable Auto Trading & Load Set</span><span class="lang-pt">Ative e Carregue o Setup</span></strong>
-                                <span class="lang-en">Click <code>Algo Trading</code>. Drag Quantum Grid onto your chart (M1 or M5 timeframe). Go to Inputs and load your preferred <code>.set</code> file.</span>
-                                <span class="lang-pt">Clique em <code>Algo Trading</code>. Arraste o Quantum Grid para o gráfico (M1 ou M5). Vá na aba Parâmetros (Inputs) e carregue seu arquivo <code>.set</code>.</span>
+                                <strong class="text-white block mb-1"><span class="lang-en">Enable Auto Trading & Load Settings</span><span class="lang-pt">Ative e Carregue o Setup</span></strong>
+                                <span class="lang-en">Click <code>Algo Trading</code>. Drag QuantumGrid onto your chart (EURUSD M1 recommended). Go to Inputs and load the provided <code>.set</code> file with optimized parameters.</span>
+                                <span class="lang-pt">Clique em <code>Algo Trading</code>. Arraste o QuantumGrid para o gráfico (EURUSD M1 recomendado). Vá na aba Parâmetros e carregue o arquivo <code>.set</code> com os parâmetros otimizados.</span>
                             </div>
                         </li>
                     </ol>
+                    <div class="mt-8 p-4 bg-emerald/10 border border-emerald/30 rounded-xl">
+                        <p class="text-emerald text-sm font-bold uppercase tracking-wider mb-1"><span class="lang-en">💡 Recommended Setup</span><span class="lang-pt">💡 Setup Recomendado</span></p>
+                        <p class="text-slate-300 text-sm"><span class="lang-en">EURUSD, M1 timeframe, Hedging account, 1:100 leverage. The included <code>.set</code> file contains all validated parameters from the 7-year backtest.</span><span class="lang-pt">EURUSD, timeframe M1, conta Hedging, alavancagem 1:100. O arquivo <code>.set</code> incluído contém todos os parâmetros validados do backtest de 7 anos.</span></p>
+                    </div>
                 </div>
             </section>
 
+            <!-- 2. DASHBOARD -->
             <section id="dashboard" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">2</div>
@@ -119,37 +133,55 @@
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="card-gradient p-6 rounded-2xl">
-                        <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">🛡️ Drawdown Monitor</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">The core feature of the Quantum Grid HUD is the real-time <strong>Equity Drawdown</strong> monitor. It actively tracks your floating loss against the strict limit required by Prop Firms, letting you know exactly how far you are from the threshold.</span>
-                            <span class="lang-pt">O recurso central do HUD do Quantum Grid é o monitor de <strong>Equity Drawdown</strong> em tempo real. Ele rastreia sua perda flutuante ativa em relação ao limite estrito das Mesas Proprietárias, informando a exata distância do limite.</span>
+                        <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">📊 Performance</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">Tracks Total Profit, Today's P&L, Monthly P&L, and Floating P&L. The <strong>Account Health</strong> bar monitors Equity vs Balance ratio with color-coded thresholds (green/yellow/red).</span>
+                            <span class="lang-pt">Rastreia Lucro Total, P&L do Dia, P&L Mensal e P&L Flutuante. A barra <strong>Account Health</strong> monitora a razão Patrimônio vs Saldo com indicadores por cor (verde/amarelo/vermelho).</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl">
-                        <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">📊 Performance Stats</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">Tracks the algorithm's surgical efficiency with real-time <strong>Win Rate</strong> and <strong>Profit Factor</strong>. It also displays the accumulated Total Net Profit and Today's PnL.</span>
-                            <span class="lang-pt">Rastreia a eficiência cirúrgica do algoritmo com a <strong>Taxa de Acerto (Win Rate)</strong> e <strong>Fator de Lucro</strong> em tempo real, além do Lucro Líquido Total e do Dia.</span>
+                        <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">🛡️ Grid Status & Risk</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">Shows current Grid Level vs Maximum, Basket TP target, Baskets Won count, Drawdown percentage, Win Rate, and Lots Traded. The status dot indicates system state: scanning (cyan), in market (green), or paused (yellow).</span>
+                            <span class="lang-pt">Mostra o Nível do Grid vs Máximo, alvo de Basket TP, contagem de Baskets Ganhos, porcentagem de Drawdown, Win Rate e Lotes Operados. O dot de status indica o estado do sistema: escaneando (ciano), no mercado (verde) ou pausado (amarelo).</span>
                         </p>
+                    </div>
+                    <div class="card-gradient p-6 rounded-2xl md:col-span-2">
+                        <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">⚡ Quick Controls</h3>
+                        <ul class="text-slate-400 text-sm leading-relaxed space-y-2">
+                            <li><strong class="text-red-400">CLOSE ALL:</strong> <span class="lang-en">Emergency button. Confirms via dialog, then closes all positions immediately.</span><span class="lang-pt">Botão de emergência. Confirma via diálogo e fecha todas as posições imediatamente.</span></li>
+                            <li><strong class="text-yellow-400">PAUSE / RESUME:</strong> <span class="lang-en">Stops new cycle entries while managing existing positions normally.</span><span class="lang-pt">Para novas entradas de ciclo enquanto gerencia posições existentes normalmente.</span></li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
+            <!-- 3. ENTRY LOGIC -->
             <section id="indicators" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">3</div>
-                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Sniper Entry Logic</span><span class="lang-pt">Lógica de Entrada Sniper</span></h2>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Precision Entry Logic</span><span class="lang-pt">Lógica de Entrada de Precisão</span></h2>
                 </div>
                 <div class="card-gradient p-8 rounded-2xl mb-6">
-                    <p class="text-slate-300 leading-relaxed lang-en">QuantumGrid employs a proprietary dual-confirmation entry system. The algorithm monitors momentum exhaustion and statistical price deviation simultaneously. A trade is only executed when both independent filters converge — ensuring entries occur exclusively at high-probability reversal zones. This is why the algorithm achieves a 64.8% win rate with a 2.37 Profit Factor.</p>
-                    <p class="text-slate-300 leading-relaxed lang-pt">O QuantumGrid utiliza um sistema proprietário de entrada com dupla confirmação. O algoritmo monitora exaustão de momento e desvio estatístico de preço simultaneamente. Uma operação só é executada quando ambos os filtros independentes convergem — garantindo entradas exclusivamente em zonas de reversão de alta probabilidade. É por isso que o algoritmo alcança 64.8% de taxa de acerto com Fator de Lucro de 2.37.</p>
+                    <p class="text-slate-300 leading-relaxed lang-en">QuantumGrid employs a <strong>proprietary dual-confirmation entry system</strong>. The algorithm monitors momentum exhaustion and statistical price deviation simultaneously using two independent mathematical filters. A new grid cycle is only initiated when both filters converge — ensuring entries occur exclusively at high-probability reversal zones. This selective approach is why the algorithm achieves a 2.37 Profit Factor with only 13.81% maximum drawdown across 7 years.</p>
+                    <p class="text-slate-300 leading-relaxed lang-pt">O QuantumGrid utiliza um <strong>sistema proprietário de entrada com dupla confirmação</strong>. O algoritmo monitora exaustão de momento e desvio estatístico de preço simultaneamente usando dois filtros matemáticos independentes. Um novo ciclo de grid só é iniciado quando ambos os filtros convergem — garantindo entradas exclusivamente em zonas de reversão de alta probabilidade. Essa abordagem seletiva é o motivo pelo qual o algoritmo alcança um Fator de Lucro de 2.37 com apenas 13.81% de drawdown máximo em 7 anos.</p>
+                </div>
+                <div class="bg-emerald/5 p-6 rounded-2xl border border-emerald/20">
+                    <p class="text-emerald text-xs font-bold uppercase tracking-widest mb-2">
+                        <span class="lang-en">Why This Matters</span><span class="lang-pt">Por Que Isso Importa</span>
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        <span class="lang-en">Most grid EAs open positions blindly at fixed intervals. QuantumGrid waits for mathematical confirmation before starting a cycle, dramatically reducing the number of cycles that enter during unfavorable conditions. Fewer bad entries = lower drawdown = safer for funded accounts.</span>
+                        <span class="lang-pt">A maioria dos EAs de grid abrem posições cegamente em intervalos fixos. O QuantumGrid espera confirmação matemática antes de iniciar um ciclo, reduzindo dramaticamente o número de ciclos que entram em condições desfavoráveis. Menos entradas ruins = menor drawdown = mais seguro para contas financiadas.</span>
+                    </p>
                 </div>
             </section>
 
+            <!-- 4. ADAPTIVE SCALING -->
             <section id="dynamic" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">4</div>
-                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Adaptive Position Scaling</span><span class="lang-pt">Escalonamento Adaptativo de Posições</span></h2>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Adaptive Position Scaling</span><span class="lang-pt">Escalamento Adaptativo de Posições</span></h2>
                 </div>
                 <div class="bg-emerald/5 p-8 rounded-2xl border border-emerald/20 mb-6 shadow-inner">
                     <p class="text-slate-300 leading-relaxed mb-4">
@@ -162,20 +194,21 @@
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
                         <h3 class="text-white font-bold mono text-lg mb-2">Spacing Sensitivity</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en">Multiplies the current market volatility value to set the minimum distance to the next level. Higher = safer.</span>
-                            <span class="lang-pt">Multiplica o valor atual da volatilidade do mercado para definir a distância mínima do próximo nível. Maior = mais seguro.</span>
+                            <span class="lang-en">Multiplies the current market volatility reading to set the minimum distance to the next grid level. Higher values = wider spacing = safer but slower recovery.</span>
+                            <span class="lang-pt">Multiplica a leitura atual de volatilidade do mercado para definir a distância mínima do próximo nível de grid. Valores maiores = espaçamento maior = mais seguro mas recuperação mais lenta.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
                         <h3 class="text-white font-bold mono text-lg mb-2">Recovery Intensity</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en">The exact factor (e.g., 1.5x) the volume increases on recovery levels to pull the breakeven line closer.</span>
-                            <span class="lang-pt">O fator exato (ex: 1.5x) que o volume aumenta na recuperação para puxar a linha de breakeven mais perto.</span>
+                            <span class="lang-en">The factor by which volume increases on each subsequent level (e.g., 1.5x) to pull the breakeven price closer to current market price.</span>
+                            <span class="lang-pt">O fator pelo qual o volume aumenta em cada nível subsequente (ex: 1.5x) para puxar o preço de breakeven mais perto do preço atual do mercado.</span>
                         </p>
                     </div>
                 </div>
             </section>
 
+            <!-- 5. PROP FIRM FAILSAFES -->
             <section id="protection" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center text-red-500 font-bold text-xl">5</div>
@@ -185,19 +218,49 @@
                 <div class="space-y-6">
                     <div class="card-gradient p-8 rounded-2xl border border-red-500/30 relative">
                         <div class="absolute top-0 right-8 bg-red-500 text-white text-[10px] font-bold px-4 py-1.5 uppercase tracking-[0.2em] rounded-b-lg">Critical Risk Control</div>
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">Max Risk Threshold <span class="text-slate-500 text-sm">(Default: 15.0)</span></h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">Max Risk Threshold <span class="text-slate-500 text-sm">(Default: 15%)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en"><strong>The Account Guardian.</strong> This is the paramount setting for funded challenges. If your total floating loss ever touches this exact percentage of your account balance, Quantum Grid engages an emergency shutdown, liquidating all open positions immediately. This guarantees you will never breach a Prop Firm's daily or total loss limits.</span>
-                            <span class="lang-pt"><strong>O Guardião da Conta.</strong> Esta é a configuração suprema para desafios financiados. Se a sua perda flutuante total tocar essa porcentagem exata, o Quantum Grid ativa o desligamento de emergência, liquidando todas as posições abertas imediatamente. Isso garante que você nunca viole as regras de perda máxima da Mesa.</span>
+                            <span class="lang-en"><strong>The Account Guardian.</strong> This is the paramount setting for funded challenges. If your total floating loss ever touches this exact percentage of your account balance, QuantumGrid engages an emergency shutdown, liquidating all open positions immediately. This guarantees you will never breach a Prop Firm's daily or total loss limits.</span>
+                            <span class="lang-pt"><strong>O Guardião da Conta.</strong> Esta é a configuração suprema para desafios financiados. Se a sua perda flutuante total tocar essa porcentagem exata, o QuantumGrid ativa o desligamento de emergência, liquidando todas as posições abertas imediatamente. Isso garante que você nunca viole as regras de perda máxima da Mesa.</span>
                         </p>
                     </div>
 
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">Cycle Profit Target</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">Instead of closing trades based on complex pip calculations, this parameter allows the algorithm to close the entire active cycle as soon as it reaches a fixed monetary profit in your account currency (e.g., $10). Highly predictable and efficient for securing daily challenge goals.</span>
-                            <span class="lang-pt">Em vez de fechar operações baseadas em cálculos complexos de pips, este parâmetro permite que o robô feche o ciclo ativo inteiro assim que atingir um lucro monetário fixo na moeda da conta (ex: $10). Altamente previsível e eficiente para garantir a meta diária do desafio.</span>
+                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">Basket Profit Target</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">Closes the entire active cycle as soon as the combined profit of all grid positions reaches a fixed monetary target in your account currency (e.g., $1.00). Highly predictable and efficient for securing daily challenge goals.</span>
+                            <span class="lang-pt">Fecha o ciclo ativo inteiro assim que o lucro combinado de todas as posições do grid atingir um alvo monetário fixo na moeda da conta (ex: $1.00). Altamente previsível e eficiente para garantir a meta diária do desafio.</span>
                         </p>
+                    </div>
+
+                    <div class="card-gradient p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-emerald mb-3 flex items-center gap-2 mono">Max Grid Levels <span class="text-slate-500 text-sm">(Default: 6)</span></h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            <span class="lang-en">Hard cap on the maximum number of grid positions per cycle. Combined with the adaptive spacing and lot scaling, this ensures the worst-case exposure is always bounded and predictable — essential for funded account rules.</span>
+                            <span class="lang-pt">Limite rígido do número máximo de posições do grid por ciclo. Combinado com o espaçamento adaptativo e escalonamento de lote, garante que a exposição no pior cenário é sempre limitada e previsível — essencial para regras de contas financiadas.</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="scroll-mt-32">
+                <div class="card-gradient p-10 rounded-2xl border-2 border-emerald/30 text-center">
+                    <h3 class="text-2xl font-black uppercase italic mb-4">
+                        <span class="lang-en">Ready to <span class="text-emerald">Start</span>?</span>
+                        <span class="lang-pt">Pronto para <span class="text-emerald">Começar</span>?</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-8 max-w-lg mx-auto">
+                        <span class="lang-en">Get QuantumGrid Pro with 50% Early Adopter discount or receive it for free via our IB partner program.</span>
+                        <span class="lang-pt">Adquira o QuantumGrid Pro com 50% de desconto de lançamento ou receba gratuitamente pelo nosso programa IB.</span>
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="index.html#checkout" class="bg-emerald text-black px-8 py-3 rounded-xl font-bold uppercase tracking-widest hover:bg-emerald/90 transition">
+                            <span class="lang-en">Buy Now — $199</span><span class="lang-pt">Comprar — $199</span>
+                        </a>
+                        <a href="https://t.me/sentinellabs_bot" target="_blank" class="bg-transparent border border-emerald text-emerald px-8 py-3 rounded-xl font-bold uppercase tracking-widest hover:bg-emerald/10 transition">
+                            <span class="lang-en">Get Free via IB</span><span class="lang-pt">Grátis via IB</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -213,7 +276,6 @@
                 <span class="lang-en">© 2026 Sentinel Quant Labs. Global financial markets involve risk of loss. Past results are not guarantees.</span>
                 <span class="lang-pt">© 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos. Resultados passados não são garantias.</span>
             </p>
-            
             <div class="risk-disclaimer pt-8 border-t border-slate-800 text-xs text-slate-500 opacity-80 leading-relaxed text-center">
                 <p class="lang-en"><strong>RISK WARNING:</strong> Trading foreign exchange carries significant risk of loss. Past performance validated through backtesting does not guarantee future results. Never invest capital you cannot afford to lose.</p>
                 <p class="lang-pt"><strong>AVISO DE RISCO:</strong> Operar no mercado de câmbio envolve risco significativo de perda. Resultados passados validados por backtesting não garantem resultados futuros. Nunca invista capital que não pode perder.</p>
@@ -227,7 +289,6 @@
             const pt = document.querySelectorAll('.lang-pt');
             const bEn = document.getElementById('btn-en');
             const bPt = document.getElementById('btn-pt');
-
             if (lang === 'en') {
                 en.forEach(e => e.style.display = 'inline-block');
                 pt.forEach(e => e.style.display = 'none');
