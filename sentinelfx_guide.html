@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SentinelFX | Official User Guide</title>
+    <meta name="description" content="Complete installation guide and technical documentation for SentinelFX — the aggressive growth trading algorithm for MetaTrader 5.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -13,19 +14,14 @@
         .mono { font-family: 'JetBrains Mono', monospace; }
         .card-gradient { background: linear-gradient(145deg, #132342, #0B162C); border: 1px solid #8E9AAF33; }
         .emerald-glow { box-shadow: 0 0 15px rgba(0, 245, 155, 0.3); }
-        
         .logo-s {
             width: 40px; height: 40px; background-color: #00F59B; border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
             font-weight: 900; color: #0B162C; font-size: 1.5rem;
             box-shadow: 0 0 15px rgba(0, 245, 155, 0.4);
         }
-
-        /* Lógica de Troca de Idioma */
         .lang-pt { display: none; }
-
-        /* Estilização de código inline */
-        code { background-color: #060D1A; padding: 2px 6px; border-radius: 4px; color: #00F59B; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; }
+        code { background-color: #060D1A; padding: 2px 6px; border-radius: 4px; color: #00F59B; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border: 1px solid rgba(0,245,155,0.2); }
     </style>
 </head>
 <body class="antialiased">
@@ -33,10 +29,15 @@
     <header class="py-6 px-4 border-b border-slate-800 sticky top-0 bg-[#0B162C]/95 backdrop-blur-md z-50">
         <div class="container mx-auto flex justify-between items-center text-white max-w-6xl">
             <div class="flex items-center gap-3">
-                <div class="logo-s text-black font-bold">S</div>
-                <span class="text-2xl font-bold tracking-tighter uppercase italic">SENTINEL<span class="text-emerald text-sm italic ml-1">FX</span></span>
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+                    <div class="logo-s text-black font-bold">S</div>
+                    <span class="text-2xl font-bold tracking-tighter uppercase italic">SENTINEL<span class="text-emerald text-sm italic ml-1">FX</span></span>
+                </a>
             </div>
             <div class="flex items-center gap-6">
+                <a href="index.html" class="hidden md:block text-xs font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-emerald transition mr-4">
+                    ← <span class="lang-en">Back to Home</span><span class="lang-pt">Voltar ao Início</span>
+                </a>
                 <span class="hidden md:block text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mr-4">
                     <span class="lang-en">Official Documentation</span><span class="lang-pt">Documentação Oficial</span>
                 </span>
@@ -53,10 +54,17 @@
             <h1 class="text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter text-white">
                 <span class="lang-en">Mastering</span><span class="lang-pt">Dominando o</span> SENTINEL<span class="text-emerald italic">FX</span>
             </h1>
-            <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+            <p class="text-slate-400 text-lg mb-4 max-w-2xl mx-auto font-light leading-relaxed">
                 <span class="lang-en">Complete installation guide and technical parameter breakdown for the ultimate quantitative trading experience.</span>
                 <span class="lang-pt">Guia completo de instalação e detalhamento técnico dos parâmetros para a melhor experiência de trading quantitativo.</span>
             </p>
+            <div class="inline-flex items-center gap-3 bg-[#060D1A] px-4 py-2 rounded-full border border-slate-800 mt-4">
+                <span class="text-emerald text-sm">✓</span>
+                <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">
+                    <span class="lang-en">7-Year Validated • PF 1.48 • 3,295 Trades • $9,454 Net Profit</span>
+                    <span class="lang-pt">7 Anos Validado • PF 1.48 • 3.295 Trades • $9.454 Lucro Líquido</span>
+                </span>
+            </div>
         </div>
     </section>
 
@@ -64,9 +72,11 @@
         
         <aside class="hidden lg:block lg:col-span-1">
             <div class="sticky top-32 space-y-2 font-bold text-sm uppercase tracking-widest text-slate-500">
-                <p class="text-emerald mb-4">ÍNDICE</p>
+                <p class="text-emerald mb-4">
+                    <span class="lang-en">Contents</span><span class="lang-pt">Índice</span>
+                </p>
                 <a href="#installation" class="block py-2 hover:text-white transition"><span class="lang-en">1. Installation</span><span class="lang-pt">1. Instalação</span></a>
-                <a href="#dashboard" class="block py-2 hover:text-white transition"><span class="lang-en">2. On-Chart Dashboard</span><span class="lang-pt">2. Painel de Controle</span></a>
+                <a href="#dashboard" class="block py-2 hover:text-white transition"><span class="lang-en">2. Dashboard & Controls</span><span class="lang-pt">2. Painel e Controles</span></a>
                 <a href="#strategy" class="block py-2 hover:text-white transition"><span class="lang-en">3. Strategy Settings</span><span class="lang-pt">3. Estratégia Principal</span></a>
                 <a href="#safety" class="block py-2 hover:text-white transition"><span class="lang-en">4. Safety System</span><span class="lang-pt">4. Sistema de Segurança</span></a>
                 <a href="#advanced" class="block py-2 hover:text-white transition"><span class="lang-en">5. Advanced Modules</span><span class="lang-pt">5. Módulos Avançados</span></a>
@@ -75,6 +85,7 @@
 
         <main class="lg:col-span-3 space-y-16">
 
+            <!-- 1. INSTALLATION -->
             <section id="installation" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">1</div>
@@ -102,48 +113,51 @@
                             <span class="font-black text-emerald mono">03</span>
                             <div>
                                 <strong class="text-white block mb-1"><span class="lang-en">Enable Auto Trading</span><span class="lang-pt">Ative o AutoTrading</span></strong>
-                                <span class="lang-en">In MT5, click the <code>Algo Trading</code> button on the top toolbar (it must be Green). Drag SentinelFX from the Navigator window onto your chart (EURUSD M1 recommended).</span>
-                                <span class="lang-pt">No MT5, clique no botão <code>Algo Trading</code> no menu superior (deve ficar Verde). Arraste o SentinelFX da janela Navegador para o seu gráfico (Recomendado EURUSD M1).</span>
+                                <span class="lang-en">In MT5, click the <code>Algo Trading</code> button on the top toolbar (it must be Green). Drag SentinelFX from the Navigator window onto your chart (EURUSD M1 recommended). Go to Inputs and load the provided <code>.set</code> file with optimized parameters.</span>
+                                <span class="lang-pt">No MT5, clique no botão <code>Algo Trading</code> no menu superior (deve ficar Verde). Arraste o SentinelFX da janela Navegador para o seu gráfico (Recomendado EURUSD M1). Vá na aba Parâmetros e carregue o arquivo <code>.set</code> com os parâmetros otimizados.</span>
                             </div>
                         </li>
                     </ol>
                     <div class="mt-8 p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
                         <p class="text-red-400 text-sm font-bold uppercase tracking-wider mb-1"><span class="lang-en">⚠️ Important Requirement</span><span class="lang-pt">⚠️ Requisito Importante</span></p>
-                        <p class="text-slate-300 text-sm"><span class="lang-en">SentinelFX requires a <strong>Hedging</strong> account. It will not execute trades on Netting accounts.</span><span class="lang-pt">O SentinelFX exige uma conta do tipo <strong>Hedging</strong>. Ele não funcionará em contas do tipo Netting.</span></p>
+                        <p class="text-slate-300 text-sm"><span class="lang-en">SentinelFX requires a <strong>Hedging</strong> account. It will not execute trades on Netting accounts. Recommended leverage: 1:100 or higher.</span><span class="lang-pt">O SentinelFX exige uma conta do tipo <strong>Hedging</strong>. Ele não funcionará em contas do tipo Netting. Alavancagem recomendada: 1:100 ou superior.</span></p>
                     </div>
                 </div>
             </section>
 
+            <!-- 2. DASHBOARD & CONTROLS -->
             <section id="dashboard" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">2</div>
-                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">On-Chart Dashboard</span><span class="lang-pt">Painel de Controle</span></h2>
+                    <h2 class="text-3xl font-bold uppercase italic"><span class="lang-en">Dashboard & Controls</span><span class="lang-pt">Painel e Controles</span></h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="card-gradient p-6 rounded-2xl">
                         <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">📊 Performance</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">Tracks your Total, Daily, and Monthly Net Profit automatically. The <strong>Account Health</strong> bar displays your Equity vs. Balance ratio in real-time.</span>
-                            <span class="lang-pt">Rastreia seu Lucro Líquido Total, Diário e Mensal automaticamente. A barra <strong>Account Health</strong> exibe a proporção do seu Patrimônio vs Saldo em tempo real.</span>
+                            <span class="lang-en">Tracks your Total, Daily, and Monthly Net Profit automatically. The <strong>Account Health</strong> bar displays your Equity vs. Balance ratio in real-time with color-coded thresholds.</span>
+                            <span class="lang-pt">Rastreia seu Lucro Líquido Total, Diário e Mensal automaticamente. A barra <strong>Account Health</strong> exibe a proporção do seu Patrimônio vs Saldo em tempo real com thresholds por cor.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl">
                         <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">🛡️ Risk & Safety</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">Monitors current Drawdown and Margin Level. The <strong>Safety Status</strong> indicator shows exactly what the algorithm's brain is processing.</span>
-                            <span class="lang-pt">Monitora o Drawdown e o Nível de Margem. O indicador <strong>Safety Status</strong> mostra exatamente o que o cérebro do algoritmo está processando no momento.</span>
+                            <span class="lang-en">Monitors current Drawdown, Margin Level, Win Rate, and Lots Traded. The <strong>Safety Status</strong> indicator shows exactly what the algorithm is doing: Scanning, Trading, ATR Filtering, Safety Engaged, or Paused.</span>
+                            <span class="lang-pt">Monitora Drawdown atual, Nível de Margem, Win Rate e Lotes Operados. O indicador <strong>Safety Status</strong> mostra exatamente o que o algoritmo está fazendo: Escaneando, Operando, Filtro ATR, Safety Ativo ou Pausado.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl md:col-span-2">
                         <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">⚡ Quick Controls</h3>
-                        <ul class="text-slate-400 text-sm leading-relaxed space-y-2">
+                        <ul class="text-slate-400 text-sm leading-relaxed space-y-3">
                             <li><strong class="text-red-400">CLOSE ALL:</strong> <span class="lang-en">Emergency button. Instantly closes all open positions and cancels pending orders.</span><span class="lang-pt">Botão de emergência. Fecha instantaneamente todas as posições abertas e cancela ordens pendentes.</span></li>
-                            <li><strong class="text-yellow-400">PAUSE/RESUME:</strong> <span class="lang-en">Temporarily stops the EA from opening NEW cycles (manages existing trades normally).</span><span class="lang-pt">Pausa o robô para não abrir NOVOS ciclos (ele continua gerenciando as ordens já abertas normalmente).</span></li>
+                            <li><strong class="text-yellow-400">PAUSE / RESUME:</strong> <span class="lang-en">Temporarily stops the EA from opening NEW cycles. Existing trades continue to be managed normally (TP monitoring, safety system, etc.).</span><span class="lang-pt">Pausa o robô para não abrir NOVOS ciclos. Ordens já abertas continuam sendo gerenciadas normalmente (monitoramento de TP, safety system, etc.).</span></li>
+                            <li><strong class="text-orange-400">STOP AFTER CYCLE:</strong> <span class="lang-en">Marks the EA to stop automatically after the current cycle closes with profit. This is the <strong>safest way to stop the EA</strong> — it waits for the natural cycle end instead of forcing closure of positions in drawdown. The button turns orange and shows "CANCEL STOP" to reverse. Status indicator shows "Stopping After Cycle" while waiting.</span><span class="lang-pt">Marca o EA para parar automaticamente após o ciclo atual fechar com lucro. Esta é a <strong>forma mais segura de parar o EA</strong> — ele espera o encerramento natural do ciclo ao invés de forçar o fechamento de posições em drawdown. O botão fica laranja e mostra "CANCEL STOP" para reverter. O indicador de status mostra "Stopping After Cycle" enquanto aguarda.</span></li>
                         </ul>
                     </div>
                 </div>
             </section>
 
+            <!-- 3. STRATEGY SETTINGS -->
             <section id="strategy" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">3</div>
@@ -161,29 +175,29 @@
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
                                 <td class="p-4 font-bold mono text-white">EntrySpacing</td>
                                 <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Distance in points between each accumulation recovery level.</span>
-                                    <span class="lang-pt">Distância em pontos entre cada nível de recuperação da acumulação.</span>
+                                    <span class="lang-en">Distance in points between each accumulation recovery level. Higher values = slower recovery but lower risk.</span>
+                                    <span class="lang-pt">Distância em pontos entre cada nível de recuperação. Valores maiores = recuperação mais lenta mas menor risco.</span>
                                 </td>
                             </tr>
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
                                 <td class="p-4 font-bold mono text-white">TakeProfit</td>
                                 <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Global target in points from the Weighted Average Price (Breakeven) of the recovery levels.</span>
-                                    <span class="lang-pt">Alvo global em pontos a partir do Preço Médio Ponderado (Breakeven) dos níveis de recuperação.</span>
+                                    <span class="lang-en">Global target in points from the Weighted Average Price (Breakeven) of all recovery levels.</span>
+                                    <span class="lang-pt">Alvo global em pontos a partir do Preço Médio Ponderado (Breakeven) de todos os níveis de recuperação.</span>
                                 </td>
                             </tr>
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
                                 <td class="p-4 font-bold mono text-white">StartLot <span class="text-slate-500 font-normal">& LotIncrement</span></td>
                                 <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Base volume for the first trade, and the volume multiplier added to each subsequent level.</span>
-                                    <span class="lang-pt">Volume base da primeira ordem, e o incremento adicionado a cada novo nível.</span>
+                                    <span class="lang-en">Base volume for the first trade, and the fixed volume added to each subsequent level for progressive recovery.</span>
+                                    <span class="lang-pt">Volume base da primeira ordem, e o incremento fixo adicionado a cada novo nível para recuperação progressiva.</span>
                                 </td>
                             </tr>
                             <tr class="hover:bg-slate-800/20 transition">
                                 <td class="p-4 font-bold mono text-white">MaxLevels</td>
                                 <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Hard limit on how many positions the recovery system can open (0 = Disabled/Infinite).</span>
-                                    <span class="lang-pt">Limite rígido de quantas posições o sistema de recuperação pode abrir (0 = Desativado/Infinito).</span>
+                                    <span class="lang-en">Hard limit on how many positions the recovery system can open. Set to 0 for unlimited (not recommended).</span>
+                                    <span class="lang-pt">Limite rígido de quantas posições o sistema de recuperação pode abrir. Defina como 0 para ilimitado (não recomendado).</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -191,6 +205,7 @@
                 </div>
             </section>
 
+            <!-- 4. SAFETY SYSTEM -->
             <section id="safety" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">4</div>
@@ -198,29 +213,42 @@
                 </div>
                 <div class="bg-emerald/5 p-8 rounded-2xl border border-emerald/20 mb-6 shadow-inner">
                     <p class="text-slate-300 leading-relaxed mb-4">
-                        <span class="lang-en">The core of SentinelFX is the <strong>Proprietary Position Rotation System</strong>. Instead of holding endless losing trades during a massive trend against you, the EA actively manages risk by sacrificing the oldest losing trade and "recycles" its volume into the newest entry. This aggressively shifts your Breakeven line closer to the current market price, allowing the EA to exit the cycle with a much smaller pullback.</span>
-                        <span class="lang-pt">O núcleo do SentinelFX é o <strong>Sistema Proprietário de Rotação de Posições</strong>. Em vez de segurar ordens perdedoras infinitas contra uma forte tendência, o EA gerencia o risco sacrificando a ordem mais antiga e "recicla" o volume dela na entrada mais nova. Isso puxa agressivamente sua linha de Breakeven para perto do preço atual, permitindo fechar o ciclo com um respiro mínimo do mercado.</span>
+                        <span class="lang-en">The core of SentinelFX is the <strong>Proprietary Position Rotation System</strong>. Instead of holding endless losing trades during a massive trend against you, the EA actively manages risk by closing the oldest losing position and recycling its volume into the newest entry. This aggressively shifts your Breakeven line closer to the current market price, allowing the EA to exit the cycle with a much smaller pullback.</span>
+                        <span class="lang-pt">O núcleo do SentinelFX é o <strong>Sistema Proprietário de Rotação de Posições</strong>. Em vez de segurar ordens perdedoras infinitas contra uma forte tendência, o EA gerencia o risco fechando a posição mais antiga e reciclando o volume dela na entrada mais nova. Isso puxa agressivamente sua linha de Breakeven para perto do preço atual, permitindo fechar o ciclo com um respiro mínimo do mercado.</span>
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
                         <h3 class="text-white font-bold mono text-lg mb-2">PositionRotation <span class="text-emerald text-sm">(Default: 6)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en">The maximum number of active recovery positions. When level 7 opens, position 1 is closed.</span>
-                            <span class="lang-pt">O número máximo de posições ativas de recuperação. Quando o nível 7 for abrir, a posição 1 é fechada.</span>
+                            <span class="lang-en">The maximum number of active recovery positions. When a new level opens beyond this limit, the oldest position is closed and its volume is recycled.</span>
+                            <span class="lang-pt">O número máximo de posições ativas de recuperação. Quando um novo nível abre além deste limite, a posição mais antiga é fechada e seu volume é reciclado.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
-                        <h3 class="text-white font-bold mono text-lg mb-2">RecyclePercent <span class="text-emerald text-sm">(Default: 50.0)</span></h3>
+                        <h3 class="text-white font-bold mono text-lg mb-2">RecyclePercent <span class="text-emerald text-sm">(Default: 50%)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en">The percentage of the closed trade's volume added as a "boost" to the new level, accelerating recovery.</span>
-                            <span class="lang-pt">A porcentagem do volume da ordem fechada que é adicionada como um "boost" no novo nível, acelerando a recuperação.</span>
+                            <span class="lang-en">The percentage of the closed trade's volume added as a "boost" to the new level. Higher values = faster recovery but larger exposure on the newest position.</span>
+                            <span class="lang-pt">A porcentagem do volume da ordem fechada que é adicionada como "boost" no novo nível. Valores maiores = recuperação mais rápida mas maior exposição na posição mais nova.</span>
                         </p>
                     </div>
                 </div>
+
+                <!-- Drawdown Protection -->
+                <div class="card-gradient p-8 rounded-2xl border border-red-500/30 relative">
+                    <div class="absolute top-0 right-8 bg-red-500 text-white text-[10px] font-bold px-4 py-1.5 uppercase tracking-[0.2em] rounded-b-lg">
+                        <span class="lang-en">Emergency Stop</span><span class="lang-pt">Parada de Emergência</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">MaxDrawdown <span class="text-slate-500 text-sm">(Default: 25%)</span></h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        <span class="lang-en">If total equity drawdown exceeds this percentage, the EA triggers an emergency shutdown — closing all positions and stopping new cycles. This is a hard failsafe to prevent catastrophic losses. Enable via <code>UseMaxDD = true</code>.</span>
+                        <span class="lang-pt">Se o drawdown total do patrimônio exceder esta porcentagem, o EA aciona uma parada de emergência — fechando todas as posições e parando novos ciclos. É uma trava rígida para prevenir perdas catastróficas. Ative via <code>UseMaxDD = true</code>.</span>
+                    </p>
+                </div>
             </section>
 
+            <!-- 5. ADVANCED MODULES -->
             <section id="advanced" class="scroll-mt-32">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-10 h-10 rounded-xl bg-emerald/20 flex items-center justify-center text-emerald font-bold text-xl">5</div>
@@ -229,23 +257,53 @@
                 
                 <div class="space-y-6">
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">⚡</span> Quick Profit Target</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">📡</span> <span class="lang-en">Volatility Filter (ATR)</span><span class="lang-pt">Filtro de Volatilidade (ATR)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en"><strong>Micro-Scalping Cashflow:</strong> Once the Position Rotation is active, the algorithm assigns a micro Take Profit (e.g., 100 points) solely to the outermost, heaviest level. If hit, it cashes out immediately and places a Limit Order to re-enter if the price pulls back. This generates continuous profit while waiting for the main trend reversal.</span>
-                            <span class="lang-pt"><strong>Micro-Scalping (Fluxo de Caixa):</strong> Quando a Rotação de Posições está ativa, o algoritmo atribui um micro Take Profit (ex: 100 pontos) apenas para o último e mais pesado nível. Se atingido, ele põe o lucro no bolso e deixa uma ordem Limit armada para reentrar no mesmo lugar. Isso gera lucro contínuo enquanto espera a reversão principal.</span>
+                            <span class="lang-en">When market volatility exceeds a configurable threshold, the algorithm blocks the opening of new grid levels — preventing position clustering during extreme market conditions. The filter automatically disengages when volatility normalizes. Enabled by default for optimal risk management.</span>
+                            <span class="lang-pt">Quando a volatilidade do mercado excede um limiar configurável, o algoritmo bloqueia a abertura de novos níveis de grid — prevenindo acúmulo de posições durante condições extremas de mercado. O filtro desativa automaticamente quando a volatilidade normaliza. Ativado por padrão para gestão de risco ideal.</span>
                         </p>
                     </div>
 
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">🔄</span> Market-Neutral Sub-System</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">⚡</span> Quick Profit Target</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">While the main recovery system accumulates against the trend, the Market-Neutral manager opens small positions <strong>WITH</strong> the trend.</span>
-                            <span class="lang-pt">Enquanto o sistema de recuperação principal acumula contra a tendência, o gerenciador Neutro ao Mercado abre posições menores <strong>A FAVOR</strong> da tendência.</span>
+                            <span class="lang-en"><strong>Micro-Scalping Cashflow:</strong> Once the Position Rotation is active and the grid is at maximum capacity, the algorithm assigns a micro Take Profit to the outermost, heaviest level. If hit, it cashes out immediately and places a Limit Order to re-enter at the same price. This generates continuous profit while waiting for the main trend reversal.</span>
+                            <span class="lang-pt"><strong>Micro-Scalping (Fluxo de Caixa):</strong> Quando a Rotação de Posições está ativa e o grid está na capacidade máxima, o algoritmo atribui um micro Take Profit ao último e mais pesado nível. Se atingido, ele põe o lucro no bolso e deixa uma ordem Limit armada para reentrar no mesmo preço. Isso gera lucro contínuo enquanto espera a reversão principal.</span>
+                        </p>
+                    </div>
+
+                    <div class="card-gradient p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">🔄</span> <span class="lang-en">Market-Neutral Sub-System</span><span class="lang-pt">Sub-Sistema Neutro ao Mercado</span></h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            <span class="lang-en">While the main recovery system accumulates against the trend, the Market-Neutral manager opens small positions <strong>WITH</strong> the trend to offset drawdown and generate cashflow.</span>
+                            <span class="lang-pt">Enquanto o sistema de recuperação principal acumula contra a tendência, o gerenciador Neutro ao Mercado abre posições menores <strong>A FAVOR</strong> da tendência para compensar o drawdown e gerar fluxo de caixa.</span>
                         </p>
                         <ul class="text-slate-300 text-sm space-y-3 pl-4 border-l-2 border-slate-700">
-                            <li><strong class="text-white mono">NeutralTP:</strong> <span class="lang-en">Take profit for the micro market-neutral trades.</span><span class="lang-pt">Alvo de lucro das micro-operações de neutralização.</span></li>
-                            <li><strong class="text-white mono">NeutralLotPercent:</strong> <span class="lang-en">How big the neutral position should be relative to the recovery volume (e.g., 10% offsets drawdown without risking the account).</span><span class="lang-pt">O tamanho da posição neutra em relação ao volume de recuperação (ex: 10% ajuda a amortecer o drawdown sem travar a margem da conta).</span></li>
+                            <li><strong class="text-white mono">NeutralTP:</strong> <span class="lang-en">Take profit target for the trend-following micro trades.</span><span class="lang-pt">Alvo de lucro das micro-operações a favor da tendência.</span></li>
+                            <li><strong class="text-white mono">NeutralLotPercent:</strong> <span class="lang-en">Size of the neutral position relative to the recovery volume (e.g., 10%).</span><span class="lang-pt">Tamanho da posição neutra em relação ao volume de recuperação (ex: 10%).</span></li>
                         </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="scroll-mt-32">
+                <div class="card-gradient p-10 rounded-2xl border-2 border-emerald/30 text-center">
+                    <h3 class="text-2xl font-black uppercase italic mb-4">
+                        <span class="lang-en">Ready to <span class="text-emerald">Start</span>?</span>
+                        <span class="lang-pt">Pronto para <span class="text-emerald">Começar</span>?</span>
+                    </h3>
+                    <p class="text-slate-400 text-sm mb-8 max-w-lg mx-auto">
+                        <span class="lang-en">Get SentinelFX with 50% Early Adopter discount or receive it for free via our IB partner program.</span>
+                        <span class="lang-pt">Adquira o SentinelFX com 50% de desconto de lançamento ou receba gratuitamente pelo nosso programa IB.</span>
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="index.html#checkout" class="bg-emerald text-black px-8 py-3 rounded-xl font-bold uppercase tracking-widest hover:bg-emerald/90 transition">
+                            <span class="lang-en">Buy Now — $149</span><span class="lang-pt">Comprar — $149</span>
+                        </a>
+                        <a href="https://t.me/sentinellabs_bot" target="_blank" class="bg-transparent border border-emerald text-emerald px-8 py-3 rounded-xl font-bold uppercase tracking-widest hover:bg-emerald/10 transition">
+                            <span class="lang-en">Get Free via IB</span><span class="lang-pt">Grátis via IB</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -261,7 +319,6 @@
                 <span class="lang-en">© 2026 Sentinel Quant Labs. Global financial markets involve risk of loss. Past results are not guarantees.</span>
                 <span class="lang-pt">© 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos. Resultados passados não são garantias.</span>
             </p>
-            
             <div class="risk-disclaimer pt-8 border-t border-slate-800 text-xs text-slate-500 opacity-80 leading-relaxed text-center">
                 <p class="lang-en"><strong>RISK WARNING:</strong> Trading foreign exchange carries significant risk of loss. Past performance validated through backtesting does not guarantee future results. Never invest capital you cannot afford to lose.</p>
                 <p class="lang-pt"><strong>AVISO DE RISCO:</strong> Operar no mercado de câmbio envolve risco significativo de perda. Resultados passados validados por backtesting não garantem resultados futuros. Nunca invista capital que não pode perder.</p>
@@ -275,7 +332,6 @@
             const pt = document.querySelectorAll('.lang-pt');
             const bEn = document.getElementById('btn-en');
             const bPt = document.getElementById('btn-pt');
-
             if (lang === 'en') {
                 en.forEach(e => e.style.display = 'inline-block');
                 pt.forEach(e => e.style.display = 'none');
