@@ -173,28 +173,28 @@
                         </thead>
                         <tbody class="text-sm text-slate-300">
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
-                                <td class="p-4 font-bold mono text-white">EntrySpacing</td>
+                                <td class="p-4 font-bold mono text-white">Grid distance between levels</td>
                                 <td class="p-4 leading-relaxed">
                                     <span class="lang-en">Distance in points between each accumulation recovery level. Higher values = slower recovery but lower risk.</span>
                                     <span class="lang-pt">Distância em pontos entre cada nível de recuperação. Valores maiores = recuperação mais lenta mas menor risco.</span>
                                 </td>
                             </tr>
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
-                                <td class="p-4 font-bold mono text-white">TakeProfit</td>
+                                <td class="p-4 font-bold mono text-white">Take Profit (points)</td>
                                 <td class="p-4 leading-relaxed">
                                     <span class="lang-en">Global target in points from the Weighted Average Price (Breakeven) of all recovery levels.</span>
                                     <span class="lang-pt">Alvo global em pontos a partir do Preço Médio Ponderado (Breakeven) de todos os níveis de recuperação.</span>
                                 </td>
                             </tr>
                             <tr class="border-b border-slate-800/50 hover:bg-slate-800/20 transition">
-                                <td class="p-4 font-bold mono text-white">StartLot <span class="text-slate-500 font-normal">& LotIncrement</span></td>
+                                <td class="p-4 font-bold mono text-white">Start Lot <span class="text-slate-500 font-normal">& Lot increment per grid level</span></td>
                                 <td class="p-4 leading-relaxed">
                                     <span class="lang-en">Base volume for the first trade, and the fixed volume added to each subsequent level for progressive recovery.</span>
                                     <span class="lang-pt">Volume base da primeira ordem, e o incremento fixo adicionado a cada novo nível para recuperação progressiva.</span>
                                 </td>
                             </tr>
                             <tr class="hover:bg-slate-800/20 transition">
-                                <td class="p-4 font-bold mono text-white">MaxLevels</td>
+                                <td class="p-4 font-bold mono text-white">Max grid levels</td>
                                 <td class="p-4 leading-relaxed">
                                     <span class="lang-en">Hard limit on how many positions the recovery system can open. Set to 0 for unlimited (not recommended).</span>
                                     <span class="lang-pt">Limite rígido de quantas posições o sistema de recuperação pode abrir. Defina como 0 para ilimitado (não recomendado).</span>
@@ -220,14 +220,14 @@
                 
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
-                        <h3 class="text-white font-bold mono text-lg mb-2">PositionRotation <span class="text-emerald text-sm">(Default: 6)</span></h3>
+                        <h3 class="text-white font-bold mono text-lg mb-2">Max simultaneous positions <span class="text-emerald text-sm">(Default: 6)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en">The maximum number of active recovery positions. When a new level opens beyond this limit, the oldest position is closed and its volume is recycled.</span>
                             <span class="lang-pt">O número máximo de posições ativas de recuperação. Quando um novo nível abre além deste limite, a posição mais antiga é fechada e seu volume é reciclado.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
-                        <h3 class="text-white font-bold mono text-lg mb-2">RecyclePercent <span class="text-emerald text-sm">(Default: 50%)</span></h3>
+                        <h3 class="text-white font-bold mono text-lg mb-2">Redistribute closed volume <span class="text-emerald text-sm">(Default: 50%)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
                             <span class="lang-en">The percentage of the closed trade's volume added as a "boost" to the new level. Higher values = faster recovery but larger exposure on the newest position.</span>
                             <span class="lang-pt">A porcentagem do volume da ordem fechada que é adicionada como "boost" no novo nível. Valores maiores = recuperação mais rápida mas maior exposição na posição mais nova.</span>
@@ -240,10 +240,10 @@
                     <div class="absolute top-0 right-8 bg-red-500 text-white text-[10px] font-bold px-4 py-1.5 uppercase tracking-[0.2em] rounded-b-lg">
                         <span class="lang-en">Emergency Stop</span><span class="lang-pt">Parada de Emergência</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">MaxDrawdown <span class="text-slate-500 text-sm">(Default: 25%)</span></h3>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">Max drawdown % before emergency close <span class="text-slate-500 text-sm">(Default: 25%)</span></h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        <span class="lang-en">If total equity drawdown exceeds this percentage, the EA triggers an emergency shutdown — closing all positions and stopping new cycles. This is a hard failsafe to prevent catastrophic losses. Enable via <code>UseMaxDD = true</code>.</span>
-                        <span class="lang-pt">Se o drawdown total do patrimônio exceder esta porcentagem, o EA aciona uma parada de emergência — fechando todas as posições e parando novos ciclos. É uma trava rígida para prevenir perdas catastróficas. Ative via <code>UseMaxDD = true</code>.</span>
+                        <span class="lang-en">If total equity drawdown exceeds this percentage, the EA triggers an emergency shutdown — closing all positions and stopping new cycles. This is a hard failsafe to prevent catastrophic losses. Enable via <code>Enable max drawdown protection = true</code>.</span>
+                        <span class="lang-pt">Se o drawdown total do patrimônio exceder esta porcentagem, o EA aciona uma parada de emergência — fechando todas as posições e parando novos ciclos. É uma trava rígida para prevenir perdas catastróficas. Ative via <code>Enable max drawdown protection = true</code>.</span>
                     </p>
                 </div>
             </section>
