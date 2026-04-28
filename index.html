@@ -57,6 +57,61 @@
         details summary::-webkit-details-marker { display: none; }
         details[open] summary .faq-arrow { transform: rotate(180deg); }
         .faq-arrow { transition: transform 0.2s ease; }
+
+        /* === LIVE TRACKING LINKS (added in patch) === */
+        .tracker-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .tracker-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(0, 245, 155, 0.08);
+            border: 1px solid rgba(0, 245, 155, 0.25);
+            border-radius: 6px;
+            color: #00F59B;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .tracker-link:hover {
+            background: rgba(0, 245, 155, 0.15);
+            border-color: rgba(0, 245, 155, 0.5);
+            transform: translateY(-1px);
+        }
+        .tracker-link.secondary {
+            background: rgba(142, 154, 175, 0.08);
+            border-color: rgba(142, 154, 175, 0.25);
+            color: #8E9AAF;
+        }
+        .tracker-link.secondary:hover {
+            background: rgba(142, 154, 175, 0.15);
+            border-color: rgba(142, 154, 175, 0.5);
+        }
+        .live-tracking-note {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: rgba(11, 22, 44, 0.6);
+            border: 1px solid #8E9AAF22;
+            border-radius: 8px;
+            font-size: 11px;
+            color: #8E9AAF;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .live-tracking-note strong {
+            color: #00F59B;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -112,7 +167,7 @@
                 <div class="flex items-center justify-between mb-8 px-2">
                     <div class="flex items-center gap-2 bg-[#0B162C]/80 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-sm">
                         <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
-                        <span class="text-white text-[10px] uppercase tracking-widest font-bold mono">Live Audit: MyFxBook Verified</span>
+                        <span class="text-white text-[10px] uppercase tracking-widest font-bold mono">Live Tracked · Track Record Verified</span>
                     </div>
                     <div class="text-[10px] uppercase tracking-widest font-bold text-slate-500">
                         <span class="lang-en">Real-Time Monitoring</span><span class="lang-pt">Monitoramento em Tempo Real</span>
@@ -124,14 +179,34 @@
                         <div class="widget-container" style="overflow: hidden; border-radius: 8px;">
                             <iframe src="https://widgets.myfxbook.com/custom-widget?id=12004281&width=450&height=250&bart=0&linet=0&symbol=AUDCAD&magic=-1&title=Sentinel_FX&titles=12&bgColor=000000&gridColor=bdbdbd&lineColor=00cb05&barColor=82ff85&bar1Color=82ff85&fontColor=ffffff&chartbgc=000000&equityColor=eff45a" width="100%" height="250" frameborder="0" scrolling="no" style="max-width: 450px; border-radius: 8px;"></iframe>
                         </div>
+                        <div class="tracker-links">
+                            <a href="https://www.myfxbook.com/portfolio/sentinel-fx/12004281" target="_blank" rel="noopener" class="tracker-link">
+                                MyFxBook ↗
+                            </a>
+                            <a href="https://www.forexfactory.com/sentinellabs#acct.76" target="_blank" rel="noopener" class="tracker-link secondary">
+                                Forex Factory ↗
+                            </a>
+                        </div>
                     </div>
                     <div class="flex flex-col items-center">
                         <h4 class="text-xs font-bold uppercase tracking-widest text-emerald mb-4">QuantumGrid Performance</h4>
                         <div class="widget-container" style="overflow: hidden; border-radius: 8px;">
                             <iframe src="https://widgets.myfxbook.com/custom-widget?id=12020729&width=450&height=250&bart=0&linet=0&symbol=AUDCAD&magic=-1&title=Quantum_Grid_Pro&titles=12&bgColor=000000&gridColor=bdbdbd&lineColor=00cb05&barColor=82ff85&bar1Color=82ff85&fontColor=ffffff&chartbgc=000000&equityColor=eff45a" width="100%" height="250" frameborder="0" scrolling="no" style="max-width: 450px; border-radius: 8px;"></iframe>
                         </div>
+                        <div class="tracker-links">
+                            <a href="https://www.myfxbook.com/portfolio/quantum-grid-pro/12020729" target="_blank" rel="noopener" class="tracker-link">
+                                MyFxBook ↗
+                            </a>
+                            <a href="https://www.forexfactory.com/sentinellabs#acct.76" target="_blank" rel="noopener" class="tracker-link secondary">
+                                Forex Factory ↗
+                            </a>
+                        </div>
                     </div>
                 </div>
+                <p class="live-tracking-note">
+                    <span class="lang-en"><strong>SentinelFX</strong> live tracking since March 17, 2026 · <strong>QuantumGrid</strong> live tracking since April 25, 2026 (early-stage data — 7-year backtest validation provided below).</span>
+                    <span class="lang-pt"><strong>SentinelFX</strong> rastreado live desde 17 de Março de 2026 · <strong>QuantumGrid</strong> rastreado live desde 25 de Abril de 2026 (dados em estágio inicial — validação por backtest de 7 anos fornecida abaixo).</span>
+                </p>
             </div>
         </div>
     </section>
@@ -276,15 +351,15 @@
                     <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
                         <span class="text-xl">🛡️</span> <span class="lang-en">Multi-Layer Safety</span><span class="lang-pt">Segurança Multicamadas</span>
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Volatility-adaptive risk management, emergency drawdown protection, position rotation, and real-time account health monitoring. Multiple independent safety layers that survived the COVID crash and 2022 rate shock.</p>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Gestão de risco adaptativa à volatilidade, proteção emergencial de drawdown, rotação de posições e monitoramento da saúde da conta em tempo real. Múltiplas camadas independentes que sobreviveram ao crash do COVID e ao choque de juros de 2022.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Volatility-adaptive risk management, emergency drawdown protection, position rotation, and real-time account health monitoring. Multiple independent safety layers backtested through the COVID crash (March 2020) and 2022 rate hike cycle using real-tick historical data.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Gestão de risco adaptativa à volatilidade, proteção emergencial de drawdown, rotação de posições e monitoramento da saúde da conta em tempo real. Múltiplas camadas independentes validadas em backtest através do crash do COVID (Março 2020) e do ciclo de aumento de juros de 2022 com dados históricos tick-a-tick.</p>
                 </div>
                 <div class="card-gradient p-8 rounded-2xl border border-slate-800 hover:border-emerald/30 transition">
                     <h3 class="text-emerald font-bold uppercase tracking-widest mb-3 text-sm flex items-center gap-2">
                         <span class="text-xl">⏳</span> <span class="lang-en">7-Year Crisis-Tested</span><span class="lang-pt">7 Anos Testado em Crises</span>
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Every algorithm must survive history before earning your trust. Both engines were validated across 7 years of real-tick data (164M+ ticks) encompassing every market regime. No curve-fitting. No demo-only results. Correlation R² = 0.99.</p>
-                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Todo algoritmo precisa sobreviver à história antes de ganhar sua confiança. Ambos os motores foram validados em 7 anos de dados real-tick (164M+ ticks) cobrindo todos os regimes de mercado. Sem curve-fitting. Sem resultados apenas em demo. Correlação R² = 0.99.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-en">Every algorithm must survive history before earning your trust. Both engines were validated across 7 years of real-tick historical data (164M+ ticks) encompassing every market regime. No curve-fitting. Backtest Linear Regression Correlation: 0.99 (SentinelFX) and 1.00 (QuantumGrid) — measuring equity curve linearity against the ideal growth path. Live performance is independently tracked on MyFxBook and Forex Factory.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed lang-pt">Todo algoritmo precisa sobreviver à história antes de ganhar sua confiança. Ambos os motores foram validados em 7 anos de dados históricos tick-a-tick (164M+ ticks) cobrindo todos os regimes de mercado. Sem curve-fitting. Correlação Linear de Regressão do backtest: 0.99 (SentinelFX) e 1.00 (QuantumGrid) — medindo a linearidade da curva de equity contra a trajetória ideal de crescimento. Performance live é monitorada de forma independente no MyFxBook e Forex Factory.</p>
                 </div>
             </div>
         </div>
@@ -573,8 +648,10 @@
             <div class="w-12 h-12 bg-emerald rounded-xl flex items-center justify-center font-bold text-black text-xl mx-auto mb-8 shadow-[0_0_15px_rgba(0,245,155,0.3)]">S</div>
             <p class="text-2xl font-bold text-slate-300 uppercase tracking-[0.5em] mb-4">Sentinel Quant Labs</p>
             
-            <div class="flex justify-center gap-6 mb-8">
+            <div class="flex justify-center gap-6 mb-8 flex-wrap">
                 <a href="https://t.me/sentinellabs_bot" target="_blank" class="text-slate-500 hover:text-emerald transition text-sm font-bold uppercase tracking-widest">Telegram</a>
+                <a href="https://www.myfxbook.com/members/SentinelLabs" target="_blank" class="text-slate-500 hover:text-emerald transition text-sm font-bold uppercase tracking-widest">MyFxBook</a>
+                <a href="https://www.forexfactory.com/sentinellabs" target="_blank" class="text-slate-500 hover:text-emerald transition text-sm font-bold uppercase tracking-widest">Forex Factory</a>
                 <a href="#engines" class="text-slate-500 hover:text-emerald transition text-sm font-bold uppercase tracking-widest">
                     <span class="lang-en">Algorithms</span><span class="lang-pt">Algoritmos</span>
                 </a>
