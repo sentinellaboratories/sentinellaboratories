@@ -22,6 +22,39 @@
         }
         .lang-pt { display: none; }
         code { background-color: #060D1A; padding: 2px 6px; border-radius: 4px; color: #00F59B; font-family: 'JetBrains Mono', monospace; font-size: 0.85em; border: 1px solid rgba(0,245,155,0.2); }
+
+        /* === Tracker links (footer) === */
+        .footer-tracker {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(0, 245, 155, 0.08);
+            border: 1px solid rgba(0, 245, 155, 0.25);
+            border-radius: 6px;
+            color: #00F59B;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .footer-tracker:hover {
+            background: rgba(0, 245, 155, 0.15);
+            border-color: rgba(0, 245, 155, 0.5);
+            transform: translateY(-1px);
+        }
+        .footer-tracker.secondary {
+            background: rgba(142, 154, 175, 0.08);
+            border-color: rgba(142, 154, 175, 0.25);
+            color: #8E9AAF;
+        }
+        .footer-tracker.secondary:hover {
+            background: rgba(142, 154, 175, 0.15);
+            border-color: rgba(142, 154, 175, 0.5);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -61,8 +94,8 @@
             <div class="inline-flex items-center gap-3 bg-[#060D1A] px-4 py-2 rounded-full border border-slate-800 mt-4">
                 <span class="text-emerald text-sm">✓</span>
                 <span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">
-                    <span class="lang-en">7-Year Validated • PF 1.48 • 3,295 Trades • $9,454 Net Profit</span>
-                    <span class="lang-pt">7 Anos Validado • PF 1.48 • 3.295 Trades • $9.454 Lucro Líquido</span>
+                    <span class="lang-en">7-Year Backtest: PF 1.48 • 3,295 Trades • $9,454 Net Profit • Live Tracked</span>
+                    <span class="lang-pt">Backtest de 7 Anos: PF 1.48 • 3.295 Trades • $9.454 Lucro Líquido • Rastreado Live</span>
                 </span>
             </div>
         </div>
@@ -142,8 +175,8 @@
                     <div class="card-gradient p-6 rounded-2xl">
                         <h3 class="text-emerald font-bold uppercase tracking-widest mb-2 text-sm">🛡️ Risk & Safety</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">Monitors current Drawdown, Margin Level, Win Rate, and Lots Traded. The <strong>Safety Status</strong> indicator shows exactly what the algorithm is doing: Scanning, Trading, ATR Filtering, Safety Engaged, or Paused.</span>
-                            <span class="lang-pt">Monitora Drawdown atual, Nível de Margem, Win Rate e Lotes Operados. O indicador <strong>Safety Status</strong> mostra exatamente o que o algoritmo está fazendo: Escaneando, Operando, Filtro ATR, Safety Ativo ou Pausado.</span>
+                            <span class="lang-en">Monitors current Drawdown, Margin Level, Win Rate, and Lots Traded. The <strong>Safety Status</strong> indicator shows the current operational state: Scanning, Trading, Volatility Filter active, Safety Engaged, or Paused.</span>
+                            <span class="lang-pt">Monitora Drawdown atual, Nível de Margem, Win Rate e Lotes Operados. O indicador <strong>Safety Status</strong> mostra o estado operacional atual: Escaneando, Operando, Filtro de Volatilidade ativo, Safety Ativo ou Pausado.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl md:col-span-2">
@@ -196,8 +229,8 @@
                             <tr class="hover:bg-slate-800/20 transition">
                                 <td class="p-4 font-bold mono text-white">Max grid levels</td>
                                 <td class="p-4 leading-relaxed">
-                                    <span class="lang-en">Hard limit on how many positions the recovery system can open. Set to 0 for unlimited (not recommended).</span>
-                                    <span class="lang-pt">Limite rígido de quantas posições o sistema de recuperação pode abrir. Defina como 0 para ilimitado (não recomendado).</span>
+                                    <span class="lang-en">Optional hard limit on the recovery system. <strong class="text-emerald">In the validated setup this parameter is unused</strong> because total exposure is already bounded by the <em>Max simultaneous positions</em> cap in the Safety System (Section 4) — the dynamic position management handles exposure deterministically.</span>
+                                    <span class="lang-pt">Limite rígido opcional do sistema de recuperação. <strong class="text-emerald">No setup validado este parâmetro não é utilizado</strong> pois a exposição total já é limitada pelo teto de <em>Max simultaneous positions</em> do Sistema de Segurança (Seção 4) — o gerenciamento dinâmico de posições controla a exposição de forma determinística.</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -213,8 +246,8 @@
                 </div>
                 <div class="bg-emerald/5 p-8 rounded-2xl border border-emerald/20 mb-6 shadow-inner">
                     <p class="text-slate-300 leading-relaxed mb-4">
-                        <span class="lang-en">The core of SentinelFX is the <strong>Proprietary Position Rotation System</strong>. Instead of holding endless losing trades during a massive trend against you, the EA actively manages risk by closing the oldest losing position and recycling its volume into the newest entry. This aggressively shifts your Breakeven line closer to the current market price, allowing the EA to exit the cycle with a much smaller pullback.</span>
-                        <span class="lang-pt">O núcleo do SentinelFX é o <strong>Sistema Proprietário de Rotação de Posições</strong>. Em vez de segurar ordens perdedoras infinitas contra uma forte tendência, o EA gerencia o risco fechando a posição mais antiga e reciclando o volume dela na entrada mais nova. Isso puxa agressivamente sua linha de Breakeven para perto do preço atual, permitindo fechar o ciclo com um respiro mínimo do mercado.</span>
+                        <span class="lang-en">The core of SentinelFX is its <strong>proprietary dynamic position management system</strong>. Rather than passively accumulating exposure during adverse trends, the algorithm continuously rebalances the active basket to maintain breakeven proximity. This active management — invisible to the user but constantly running in the background — is engineered to compress the recovery distance required to exit cycles profitably, even under sustained directional pressure.</span>
+                        <span class="lang-pt">O núcleo do SentinelFX é seu <strong>sistema proprietário de gerenciamento dinâmico de posições</strong>. Em vez de acumular exposição passivamente em tendências adversas, o algoritmo rebalanceia continuamente a cesta ativa para manter proximidade do breakeven. Esse gerenciamento ativo — invisível ao usuário mas constantemente em execução — foi engenhado para comprimir a distância de recuperação necessária para sair dos ciclos com lucro, mesmo sob pressão direcional sustentada.</span>
                     </p>
                 </div>
                 
@@ -222,15 +255,15 @@
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
                         <h3 class="text-white font-bold mono text-lg mb-2">Max simultaneous positions <span class="text-emerald text-sm">(Default: 6)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en">The maximum number of active recovery positions. When a new level opens beyond this limit, the oldest position is closed and its volume is recycled.</span>
-                            <span class="lang-pt">O número máximo de posições ativas de recuperação. Quando um novo nível abre além deste limite, a posição mais antiga é fechada e seu volume é reciclado.</span>
+                            <span class="lang-en">The maximum number of active positions managed by the dynamic system. This parameter <strong>caps total account exposure</strong> at any moment — a critical risk control that bounds the worst-case scenario regardless of market conditions.</span>
+                            <span class="lang-pt">O número máximo de posições ativas gerenciadas pelo sistema dinâmico. Este parâmetro <strong>limita a exposição total da conta</strong> em qualquer momento — um controle crítico de risco que delimita o pior cenário independentemente das condições de mercado.</span>
                         </p>
                     </div>
                     <div class="card-gradient p-6 rounded-2xl border-l-4 border-l-emerald">
                         <h3 class="text-white font-bold mono text-lg mb-2">Redistribute closed volume <span class="text-emerald text-sm">(Default: 50%)</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            <span class="lang-en">The percentage of the closed trade's volume added as a "boost" to the new level. Higher values = faster recovery but larger exposure on the newest position.</span>
-                            <span class="lang-pt">A porcentagem do volume da ordem fechada que é adicionada como "boost" no novo nível. Valores maiores = recuperação mais rápida mas maior exposição na posição mais nova.</span>
+                            <span class="lang-en">Controls how aggressively the dynamic management system reallocates capital across the active basket. Higher values = more responsive recovery but greater concentration on the most recent positions. Default is calibrated for balanced behavior.</span>
+                            <span class="lang-pt">Controla quão agressivamente o sistema de gerenciamento dinâmico realoca capital ao longo da cesta ativa. Valores maiores = recuperação mais responsiva mas maior concentração nas posições mais recentes. O default é calibrado para comportamento balanceado.</span>
                         </p>
                     </div>
                 </div>
@@ -238,12 +271,12 @@
                 <!-- Drawdown Protection -->
                 <div class="card-gradient p-8 rounded-2xl border border-red-500/30 relative">
                     <div class="absolute top-0 right-8 bg-red-500 text-white text-[10px] font-bold px-4 py-1.5 uppercase tracking-[0.2em] rounded-b-lg">
-                        <span class="lang-en">Emergency Stop</span><span class="lang-pt">Parada de Emergência</span>
+                        <span class="lang-en">Optional Failsafe</span><span class="lang-pt">Trava Opcional</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">Max drawdown % before emergency close <span class="text-slate-500 text-sm">(Default: 25%)</span></h3>
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2 mono mt-2">Max drawdown % <span class="text-slate-500 text-sm">(Default: 25%)</span></h3>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        <span class="lang-en">If total equity drawdown exceeds this percentage, the EA triggers an emergency shutdown — closing all positions and stopping new cycles. This is a hard failsafe to prevent catastrophic losses. Enable via <code>Enable max drawdown protection = true</code>.</span>
-                        <span class="lang-pt">Se o drawdown total do patrimônio exceder esta porcentagem, o EA aciona uma parada de emergência — fechando todas as posições e parando novos ciclos. É uma trava rígida para prevenir perdas catastróficas. Ative via <code>Enable max drawdown protection = true</code>.</span>
+                        <span class="lang-en">If enabled (<code>Enable max drawdown protection = true</code>), the EA will trigger an emergency shutdown if total equity drawdown reaches the configured percentage — closing all positions and stopping new cycles. <strong class="text-emerald">In the 7-year validated backtest the maximum equity drawdown observed was 19.04%</strong>, comfortably within the 25% configured threshold. The threshold is provided as an optional secondary failsafe; primary risk control comes from the dynamic position management and the Volatility Filter.</span>
+                        <span class="lang-pt">Se ativado (<code>Enable max drawdown protection = true</code>), o EA aciona um desligamento de emergência se o drawdown total do patrimônio atingir a porcentagem configurada — fechando todas as posições e parando novos ciclos. <strong class="text-emerald">No backtest validado de 7 anos o drawdown máximo de equity observado foi de 19,04%</strong>, confortavelmente dentro do threshold configurado de 25%. O threshold é fornecido como uma trava secundária opcional; o controle de risco primário vem do gerenciamento dinâmico de posições e do Filtro de Volatilidade.</span>
                     </p>
                 </div>
             </section>
@@ -257,30 +290,30 @@
                 
                 <div class="space-y-6">
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">📡</span> <span class="lang-en">Volatility Filter (ATR)</span><span class="lang-pt">Filtro de Volatilidade (ATR)</span></h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">📡</span> <span class="lang-en">Volatility Filter</span><span class="lang-pt">Filtro de Volatilidade</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">When market volatility exceeds a configurable threshold, the algorithm blocks the opening of new grid levels — preventing position clustering during extreme market conditions. The filter automatically disengages when volatility normalizes. Enabled by default for optimal risk management.</span>
-                            <span class="lang-pt">Quando a volatilidade do mercado excede um limiar configurável, o algoritmo bloqueia a abertura de novos níveis de grid — prevenindo acúmulo de posições durante condições extremas de mercado. O filtro desativa automaticamente quando a volatilidade normaliza. Ativado por padrão para gestão de risco ideal.</span>
+                            <span class="lang-en">When market volatility exceeds a configurable threshold, the algorithm blocks the opening of new grid levels — preventing position clustering during extreme market conditions. The filter automatically disengages when volatility normalizes. <strong>Enabled by default</strong> in the validated configuration, this is the primary first line of defense against adverse market regimes.</span>
+                            <span class="lang-pt">Quando a volatilidade do mercado excede um limiar configurável, o algoritmo bloqueia a abertura de novos níveis de grid — prevenindo acúmulo de posições durante condições extremas de mercado. O filtro desativa automaticamente quando a volatilidade normaliza. <strong>Ativado por padrão</strong> na configuração validada, é a primeira linha de defesa primária contra regimes adversos de mercado.</span>
                         </p>
                     </div>
 
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">⚡</span> Quick Profit Target</h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">⚡</span> <span class="lang-en">Quick Profit Module</span><span class="lang-pt">Módulo Quick Profit</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en"><strong>Micro-Scalping Cashflow:</strong> Once the Position Rotation is active and the grid is at maximum capacity, the algorithm assigns a micro Take Profit to the outermost, heaviest level. If hit, it cashes out immediately and places a Limit Order to re-enter at the same price. This generates continuous profit while waiting for the main trend reversal.</span>
-                            <span class="lang-pt"><strong>Micro-Scalping (Fluxo de Caixa):</strong> Quando a Rotação de Posições está ativa e o grid está na capacidade máxima, o algoritmo atribui um micro Take Profit ao último e mais pesado nível. Se atingido, ele põe o lucro no bolso e deixa uma ordem Limit armada para reentrar no mesmo preço. Isso gera lucro contínuo enquanto espera a reversão principal.</span>
+                            <span class="lang-en"><strong>Continuous Cashflow Generator.</strong> A proprietary internal module that generates incremental gains while the main basket waits for its primary profit target. Operates automatically with no user intervention required and contributes to the algorithm's high win rate (69.9% over 7 years).</span>
+                            <span class="lang-pt"><strong>Gerador Contínuo de Fluxo de Caixa.</strong> Um módulo interno proprietário que gera ganhos incrementais enquanto a cesta principal aguarda seu alvo de lucro primário. Opera automaticamente sem necessidade de intervenção do usuário e contribui para o alto win rate do algoritmo (69,9% em 7 anos).</span>
                         </p>
                     </div>
 
                     <div class="card-gradient p-8 rounded-2xl">
-                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">🔄</span> <span class="lang-en">Market-Neutral Sub-System</span><span class="lang-pt">Sub-Sistema Neutro ao Mercado</span></h3>
+                        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-emerald">🔄</span> <span class="lang-en">Hedge Sub-System</span><span class="lang-pt">Sub-Sistema Hedge</span></h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                            <span class="lang-en">While the main recovery system accumulates against the trend, the Market-Neutral manager opens small positions <strong>WITH</strong> the trend to offset drawdown and generate cashflow.</span>
-                            <span class="lang-pt">Enquanto o sistema de recuperação principal acumula contra a tendência, o gerenciador Neutro ao Mercado abre posições menores <strong>A FAVOR</strong> da tendência para compensar o drawdown e gerar fluxo de caixa.</span>
+                            <span class="lang-en">A proprietary auxiliary module that maintains exposure balance during sustained directional pressure. Operates as a secondary system supporting the main basket and is calibrated to remain proportional to the primary recovery volume.</span>
+                            <span class="lang-pt">Um módulo auxiliar proprietário que mantém o equilíbrio de exposição durante pressão direcional sustentada. Opera como sistema secundário apoiando a cesta principal e é calibrado para permanecer proporcional ao volume de recuperação primário.</span>
                         </p>
                         <ul class="text-slate-300 text-sm space-y-3 pl-4 border-l-2 border-slate-700">
-                            <li><strong class="text-white mono">NeutralTP:</strong> <span class="lang-en">Take profit target for the trend-following micro trades.</span><span class="lang-pt">Alvo de lucro das micro-operações a favor da tendência.</span></li>
-                            <li><strong class="text-white mono">NeutralLotPercent:</strong> <span class="lang-en">Size of the neutral position relative to the recovery volume (e.g., 10%).</span><span class="lang-pt">Tamanho da posição neutra em relação ao volume de recuperação (ex: 10%).</span></li>
+                            <li><strong class="text-white mono">HedgeTP:</strong> <span class="lang-en">Profit target for the auxiliary sub-system positions.</span><span class="lang-pt">Alvo de lucro das posições do sub-sistema auxiliar.</span></li>
+                            <li><strong class="text-white mono">HedgeLotPercent:</strong> <span class="lang-en">Auxiliary position size as a percentage of the primary recovery volume (e.g., 10%).</span><span class="lang-pt">Tamanho da posição auxiliar como porcentagem do volume de recuperação primário (ex: 10%).</span></li>
                         </ul>
                     </div>
                 </div>
@@ -315,6 +348,13 @@
         <div class="container mx-auto max-w-5xl">
             <div class="w-12 h-12 bg-emerald rounded-xl flex items-center justify-center font-bold text-black text-xl mx-auto mb-8 shadow-[0_0_15px_rgba(0,245,155,0.3)]">S</div>
             <p class="text-2xl font-bold text-slate-300 uppercase tracking-[0.5em] mb-4">Sentinel Quant Labs</p>
+
+            <div class="flex justify-center gap-3 mb-8 flex-wrap">
+                <a href="https://www.myfxbook.com/portfolio/sentinel-fx/12004281" target="_blank" rel="noopener" class="footer-tracker">MyFxBook ↗</a>
+                <a href="https://www.forexfactory.com/sentinellabs#acct.76" target="_blank" rel="noopener" class="footer-tracker secondary">Forex Factory ↗</a>
+                <a href="https://t.me/sentinellabs_bot" target="_blank" class="footer-tracker secondary">Telegram ↗</a>
+            </div>
+
             <p class="text-[11px] leading-relaxed max-w-3xl mx-auto uppercase tracking-wider text-white font-bold italic opacity-40 mb-6">
                 <span class="lang-en">© 2026 Sentinel Quant Labs. Global financial markets involve risk of loss. Past results are not guarantees.</span>
                 <span class="lang-pt">© 2026 Sentinel Quant Labs. O mercado financeiro global envolve riscos. Resultados passados não são garantias.</span>
